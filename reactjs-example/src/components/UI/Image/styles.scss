@@ -1,0 +1,46 @@
+@use '../../../var';
+
+.gallery-item {
+  margin-block-end: 2.4rem;
+
+  &:first-child {
+    padding-block-start: 2.6rem;
+
+    @media (max-width: var.$desktop) {
+      padding-block-start: 3.6rem;
+
+      @media (max-width: var.$tablet) {
+        padding-block-start: 3rem;
+      }
+    }
+  }
+
+  &:nth-child(11) {
+    padding-block-start: 2.6rem;
+
+    @media (max-width: var.$desktop) {
+      padding-block-start: 3.6rem;
+
+      @media (max-width: var.$tablet) {
+        padding-block-start: 0;
+      }
+    }
+  }
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20%);
+  visibility: hidden;
+  transition-property: opacity, transform, visibility;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+
+  &.active {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+}
