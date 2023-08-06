@@ -1,0 +1,28 @@
+@use '../../var';
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background-color: var.$bg-black;
+
+  &__navigation {
+    min-height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 5rem;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0 5.5rem;
+
+    @media (max-width: var.$desktop) {
+      display: none;
+    }
+  }
+}

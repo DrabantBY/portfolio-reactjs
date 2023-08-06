@@ -17,10 +17,16 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    'jsx-quotes': ['error', 'prefer-single'],
     'react/react-in-jsx-scope': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
+    'react/function-component-definition': 'off',
+    'arrow-body-style': 'off',
+    'import/no-named-as-default': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
   },
 };
