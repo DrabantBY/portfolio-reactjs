@@ -4,11 +4,12 @@ import Template from './pages/Template';
 import Visiting from './pages/Visiting';
 import Explore from './pages/Explore';
 import Gallery from './pages/Gallery';
+import Contacts from './pages/Contacts';
 
 const Tour = lazy(() => import('./pages/Tour'));
 
 // import Parallax from './Components/UI/Parallax';
-// import Contacts from './Pages/Contacts';
+
 // import Tickets from './Pages/Tickets';
 // import Booking from './Pages/Booking';
 
@@ -25,8 +26,8 @@ const router = createBrowserRouter([
             <Explore />
             <Gallery />
             {/* <Tickets />
-            <Parallax />
-            <Contacts /> */}
+            <Parallax /> */}
+            <Contacts />
           </>
         ),
       },
