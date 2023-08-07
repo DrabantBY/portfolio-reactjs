@@ -1,6 +1,6 @@
 import './styles.scss';
 
-const Parallax = () => {
+const Parallax = (): JSX.Element => {
   return <div className='parallax' />;
 };
 

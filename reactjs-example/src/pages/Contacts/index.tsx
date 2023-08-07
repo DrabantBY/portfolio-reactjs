@@ -2,7 +2,7 @@ import Section from '../Section';
 import Location from '../../components/Location';
 import './styles.scss';
 
-const Contacts = () => {
+const Contacts = (): JSX.Element => {
   return (
     <Section sectionId='contacts'>
       <h2 className='section-title section-contacts__title'>contacts</h2>

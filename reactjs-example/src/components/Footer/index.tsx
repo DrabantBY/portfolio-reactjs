@@ -5,13 +5,24 @@ import { ReactComponent as RolScIcon } from '../../assets/rolsc.svg';
 import { ReactComponent as GithubIcon } from '../../assets/github.svg';
 import './styles.scss';
 
-const Footer = () => {
+type FooterPropsType = {
+  isMenu: boolean;
+};
+
+const Footer = ({ isMenu }: FooterPropsType): JSX.Element => {
   return (
     <footer className='footer'>
       <div className='container footer__container'>
         <div className='footer__body'>
           <Logo position='footer' />
-          <Menu position='footer' isBurger={false} isActive={false} setIsActive={null} />
+          {isMenu && (
+            <Menu
+              position='footer'
+              isBurger={false}
+              isActive={false}
+              setIsActive={null}
+            />
+          )}
           <SocialNet />
         </div>
       </div>

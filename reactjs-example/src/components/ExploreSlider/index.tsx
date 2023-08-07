@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './styles.scss';
 
-const ExploreSlider = () => {
+const ExploreSlider = (): JSX.Element => {
   const [canMove, setCanMove] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
@@ -17,7 +17,9 @@ const ExploreSlider = () => {
         eventPosition >= left - thumbWidth / 2 &&
         eventPosition <= left + width - thumbWidth / 2
       ) {
-        thumbRef.current.style.left = `${((eventPosition - left) * 100) / width}%`;
+        thumbRef.current.style.left = `${
+          ((eventPosition - left) * 100) / width
+        }%`;
         imageRef.current.style.clipPath = `inset(0 ${
           100 - ((eventPosition - left + thumbWidth / 2) / width) * 100
         }% 0 0)`;
@@ -44,7 +46,10 @@ const ExploreSlider = () => {
 
   return (
     <div className='slider-explore section-explore__slider-explore'>
-      <div className='slider-explore__figure-before section-explore__figure-before' ref={imageRef}>
+      <div
+        className='slider-explore__figure-before section-explore__figure-before'
+        ref={imageRef}
+      >
         <img
           className='slider-explore__image-before section-explore__image-before'
           src='explore/before.jpg'

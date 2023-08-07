@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import Footer from '../../components/Footer';
+import './styles.scss';
 
 enum VirtualTours {
   DiscoverTheLouvre = 'https://www.google.com/maps/embed?pb=!4v1676722357333!6m8!1m7!1sCAoSLEFGMVFpcE9WeFpRdVN5M0J4OVRfSHBIXzdGdEJIRFRYdkk2U0YtQTEwb2NU!2m2!1d48.86181593314584!2d2.336681797486702!3f81.55!4f-16.599999999999994!5f0.7820865974627469',
@@ -10,16 +12,21 @@ enum VirtualTours {
   NightPalace = 'https://www.google.com/maps/embed?pb=!4v1676725574263!6m8!1m7!1sCAoSLEFGMVFpcFBwR0Fvd1lhdFZ5azNNTUduWkFhUWtZbTJFVWstRGxjYTA2U1M1!2m2!1d48.8563254!2d2.3352706!3f21.26!4f-10.090000000000003!5f0.4000000000000002',
 }
 
-const Tour = () => {
+const Tour = (): JSX.Element => {
   const { name } = useParams() as { name: keyof typeof VirtualTours };
 
   return (
-    <iframe
-      title={name}
-      src={VirtualTours[name]}
-      allowFullScreen
-      loading='lazy'
-    />
+    <>
+      <main className='iframe'>
+        <iframe
+          title={name}
+          src={VirtualTours[name]}
+          allowFullScreen
+          loading='lazy'
+        />
+      </main>
+      <Footer isMenu={false} />
+    </>
   );
 };
 

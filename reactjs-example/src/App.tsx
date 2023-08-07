@@ -29,18 +29,18 @@ const router = createBrowserRouter([
           </>
         ),
       },
-      {
-        path: '/tours/:name',
-        element: (
-          <Suspense fallback={<Spinner />}>
-            <Tour />
-          </Suspense>
-        ),
-      },
     ],
+  },
+  {
+    path: '/tours/:name',
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <Tour />
+      </Suspense>
+    ),
   },
 ]);
 
-const App = () => <RouterProvider router={router} />;
+const App = (): JSX.Element => <RouterProvider router={router} />;
 
 export default App;

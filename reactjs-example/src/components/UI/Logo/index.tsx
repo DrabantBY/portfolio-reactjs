@@ -8,7 +8,7 @@ type LogoPropsType = {
   position: 'header' | 'footer';
 };
 
-const Logo = ({ position }: LogoPropsType) => {
+const Logo = ({ position }: LogoPropsType): JSX.Element => {
   const { setIsActive } = useContext(MenuBurgerContext);
 
   return (

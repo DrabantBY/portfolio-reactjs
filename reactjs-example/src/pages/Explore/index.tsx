@@ -2,7 +2,7 @@ import Section from '../Section';
 import ExploreSlider from '../../components/ExploreSlider';
 import './styles.scss';
 
-const Explore = () => {
+const Explore = (): JSX.Element => {
   return (
     <Section sectionId='explore'>
       <div className='section-explore__body'>

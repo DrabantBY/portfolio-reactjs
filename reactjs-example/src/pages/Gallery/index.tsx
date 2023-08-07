@@ -21,7 +21,7 @@ const GALLERY = [
   'gallery/gallery15.jpg',
 ];
 
-const Gallery = () => {
+const Gallery = (): JSX.Element => {
   const galleryList = shuffleGalleryItems(GALLERY);
 
   return (

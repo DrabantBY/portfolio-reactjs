@@ -12,7 +12,7 @@ const MARKERS = [
   { longitude: 2.3365, latitude: 48.8625 },
 ];
 
-const Location = () => {
+const Location = (): JSX.Element => {
   return (
     <Map
       initialViewState={{

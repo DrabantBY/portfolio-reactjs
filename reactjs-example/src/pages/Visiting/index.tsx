@@ -11,7 +11,7 @@ const TITLES = [
   'night palace',
 ];
 
-const Visiting = () => {
+const Visiting = (): JSX.Element => {
   return (
     <Section sectionId='visiting'>
       <h2 className='section-title section-visiting__title'>virtual tour</h2>
