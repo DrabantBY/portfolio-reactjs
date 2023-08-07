@@ -5,13 +5,11 @@ import Visiting from './pages/Visiting';
 import Explore from './pages/Explore';
 import Gallery from './pages/Gallery';
 import Contacts from './pages/Contacts';
+// import Tickets from './pages/Tickets';
+import Parallax from './components/Parallax';
+import Spinner from './components/UI/Spinner';
 
 const Tour = lazy(() => import('./pages/Tour'));
-
-// import Parallax from './Components/UI/Parallax';
-
-// import Tickets from './Pages/Tickets';
-// import Booking from './Pages/Booking';
 
 const router = createBrowserRouter([
   {
@@ -25,8 +23,8 @@ const router = createBrowserRouter([
             <Visiting />
             <Explore />
             <Gallery />
-            {/* <Tickets />
-            <Parallax /> */}
+            {/* <Tickets /> */}
+            <Parallax />
             <Contacts />
           </>
         ),
@@ -34,17 +32,13 @@ const router = createBrowserRouter([
       {
         path: '/tours/:name',
         element: (
-          <Suspense fallback='Loading......'>
+          <Suspense fallback={<Spinner />}>
             <Tour />
           </Suspense>
         ),
       },
     ],
   },
-  // {
-  //   path: '/booking',
-  //   element: <Booking />,
-  // },
 ]);
 
 const App = () => <RouterProvider router={router} />;

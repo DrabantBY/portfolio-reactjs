@@ -29,6 +29,8 @@
 }
 
 .gallery-image {
+  position: relative;
+  z-index: -1;
   display: block;
   width: 100%;
   opacity: 0;
@@ -42,5 +44,6 @@
     opacity: 1;
     transform: none;
     visibility: visible;
+    z-index: 0;
   }
 }

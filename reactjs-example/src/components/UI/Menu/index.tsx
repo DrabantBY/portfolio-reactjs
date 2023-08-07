@@ -56,7 +56,6 @@ const Menu = memo(
               spy
               smooth
               hashSpy
-              offset={-60}
               isDynamic
               className={classLink}
               to={link}
