@@ -1,9 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import Template from './pages/Template';
-// import Visiting from './Pages/Visiting';
+import Visiting from './pages/Visiting';
 import Explore from './pages/Explore';
 import Gallery from './pages/Gallery';
-// import VirtualTour from './Pages/VirtualTour';
+
+const Tour = lazy(() => import('./pages/Tour'));
+
 // import Parallax from './Components/UI/Parallax';
 // import Contacts from './Pages/Contacts';
 // import Tickets from './Pages/Tickets';
@@ -18,7 +21,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <>
-            {/* <Visiting /> */}
+            <Visiting />
             <Explore />
             <Gallery />
             {/* <Tickets />
@@ -27,10 +30,14 @@ const router = createBrowserRouter([
           </>
         ),
       },
-      // {
-      //   path: '/tours/:name',
-      //   element: <VirtualTour />,
-      // },
+      {
+        path: '/tours/:name',
+        element: (
+          <Suspense fallback='Loading......'>
+            <Tour />
+          </Suspense>
+        ),
+      },
     ],
   },
   // {

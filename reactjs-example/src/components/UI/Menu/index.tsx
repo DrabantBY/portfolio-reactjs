@@ -26,7 +26,9 @@ const Menu = memo(
       burger,
       `navigation__${burger}`,
       `${position}__${burger}`,
-      { active: isActive }
+      {
+        active: isActive,
+      }
     );
 
     const classItem = classnames(

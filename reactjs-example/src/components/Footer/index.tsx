@@ -11,12 +11,7 @@ const Footer = () => {
       <div className='container footer__container'>
         <div className='footer__body'>
           <Logo position='footer' />
-          <Menu
-            position='footer'
-            isBurger={false}
-            isActive={false}
-            setIsActive={null}
-          />
+          <Menu position='footer' isBurger={false} isActive={false} setIsActive={null} />
           <SocialNet />
         </div>
       </div>

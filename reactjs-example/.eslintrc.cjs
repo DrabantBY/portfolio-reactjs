@@ -26,6 +26,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'operator-linebreak': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
     '@typescript-eslint/comma-dangle': 'off',
   },
 };

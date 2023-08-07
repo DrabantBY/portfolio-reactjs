@@ -55,7 +55,6 @@ const ExploreSlider = () => {
       <div
         className='slider-explore__thumb section-explore__thumb'
         ref={thumbRef}
-        role='presentation'
         onMouseDown={() => {
           setCanMove(true);
         }}

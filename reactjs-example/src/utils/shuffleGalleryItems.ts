@@ -1,4 +1,4 @@
-const shuffleGalleryItems = (arr: string[]) => {
+const shuffleGalleryItems = (arr: string[]): string[] => {
   const result = arr.slice();
 
   for (let i = result.length - 1; i > 0; i -= 1) {
