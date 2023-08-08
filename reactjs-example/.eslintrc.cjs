@@ -17,16 +17,28 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
-    'jsx-quotes': ['error', 'prefer-single'],
+    'jsx-quotes': ['warn', 'prefer-single'],
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
     'react/react-in-jsx-scope': 'off',
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    'react/function-component-definition': 'off',
-    'arrow-body-style': 'off',
-    'import/no-named-as-default': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'operator-linebreak': 'off',
-    'react/jsx-one-expression-per-line': 'off',
-    'jsx-a11y/no-static-element-interactions': 'off',
-    '@typescript-eslint/comma-dangle': 'off',
+    'react/function-component-definition': [
+      'warn',
+      {
+        namedComponents: 'arrow-function',
+      },
+    ],
+    'arrow-body-style': ['warn', 'always'],
+
+    // 'react/function-component-definition': 'off',
+    // 'arrow-body-style': 'off',
+    // 'import/no-named-as-default': 'off',
+    // 'import/no-extraneous-dependencies': 'off',
+    // 'operator-linebreak': 'off',
+    // 'react/jsx-one-expression-per-line': 'off',
+    // 'jsx-a11y/no-static-element-interactions': 'off',
+    // 'jsx-a11y/label-has-associated-control': 'off',
+    // '@typescript-eslint/comma-dangle': 'off',
   },
 };

@@ -5,7 +5,7 @@ import Visiting from './pages/Visiting';
 import Explore from './pages/Explore';
 import Gallery from './pages/Gallery';
 import Contacts from './pages/Contacts';
-// import Tickets from './pages/Tickets';
+import Tickets from './pages/Tickets';
 import Parallax from './components/Parallax';
 import Spinner from './components/UI/Spinner';
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
             <Visiting />
             <Explore />
             <Gallery />
-            {/* <Tickets /> */}
+            <Tickets />
             <Parallax />
             <Contacts />
           </>
@@ -41,6 +41,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-const App = (): JSX.Element => <RouterProvider router={router} />;
+const App = (): JSX.Element => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;
