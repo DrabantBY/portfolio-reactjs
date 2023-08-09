@@ -1,8 +1,8 @@
 import Logo from '../UI/Logo';
 import Menu from '../UI/Menu';
-import SocialNet from '../UI/SocialNet';
-import { ReactComponent as RolScIcon } from '../../assets/rolsc.svg';
-import { ReactComponent as GithubIcon } from '../../assets/github.svg';
+import SocialNet from './SocialNet';
+import { ReactComponent as RolScIcon } from '../../assets/svg/footer/rolsc.svg';
+import { ReactComponent as GithubIcon } from '../../assets/svg/footer/github.svg';
 import './styles.scss';
 
 type FooterPropsType = {

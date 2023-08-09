@@ -1,7 +1,7 @@
-import classnames from 'classnames';
 import { memo } from 'react';
+import classnames from 'classnames';
 import { Link } from 'react-scroll';
-import { ReactComponent as ArrowIcon } from '../../../assets/arrow.svg';
+import { ReactComponent as ArrowIcon } from '../../../assets/svg/arrow.svg';
 import './styles.scss';
 
 const MENU = ['visiting', 'explore', 'video', 'gallery', 'tickets', 'contacts'];

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import MenuBurgerContext from '../../../context';
-import { ReactComponent as LogoIcon } from '../../../assets/logo.svg';
+import { ReactComponent as LogoIcon } from '../../../assets/svg/logo.svg';
 import './styles.scss';
 
 type LogoPropsType = {

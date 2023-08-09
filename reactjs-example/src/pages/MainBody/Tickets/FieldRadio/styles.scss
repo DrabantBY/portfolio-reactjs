@@ -1,0 +1,48 @@
+@use '../../../../var';
+
+.form-field-radio {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: center;
+  column-gap: 2rem;
+  font-weight: 300;
+  font-size: 2.2rem;
+  line-height: 2.6rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: color 0.2s linear;
+
+  &:hover {
+    color: var.$gold-hover;
+  }
+
+  input[type='radio'] {
+    display: grid;
+    place-content: center;
+
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var.$white;
+
+    color: currentColor;
+    width: 1.7rem;
+    height: 1.7rem;
+    border: 0.2rem solid currentColor;
+    border-radius: 100%;
+    cursor: inherit;
+
+    &::before {
+      content: '';
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 100%;
+      transform: scale(0);
+      transition: transform 0.2s linear;
+      box-shadow: inset 1rem 1rem currentColor;
+    }
+
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
+}

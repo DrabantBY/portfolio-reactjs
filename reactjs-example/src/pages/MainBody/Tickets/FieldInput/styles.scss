@@ -1,0 +1,49 @@
+@use '../../../../var';
+
+.form-field-input {
+  position: relative;
+  height: 4.5rem;
+  border: 0.2rem solid var.$bg-black;
+
+  &.error {
+    border-color: var.$red;
+
+    input {
+      color: var.$red;
+    }
+
+    svg path {
+      fill: var.$red;
+    }
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    padding-inline-start: 4.5rem;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    cursor: pointer;
+
+    &::placeholder {
+      text-transform: capitalize;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+  }
+
+  span {
+    position: absolute;
+    left: 0;
+    bottom: -45%;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    color: var.$red;
+  }
+}
