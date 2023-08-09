@@ -46,26 +46,33 @@ const Menu = memo(
     return (
       <ul
         className={classMenu}
-        onClick={(e) => e.preventDefault()}
-        aria-hidden='true'
+        onClick={(e) => {
+          e.preventDefault();
+        }}
       >
-        {MENU.map((link) => (
-          <li key={link} className={classItem}>
-            <Link
-              activeClass='active'
-              spy
-              smooth
-              hashSpy
-              isDynamic
-              className={classLink}
-              to={link}
-              onClick={() => setIsActive && setIsActive(false)}
-            >
-              {link}
-              {isBurger && <ArrowIcon />}
-            </Link>
-          </li>
-        ))}
+        {MENU.map((link) => {
+          return (
+            <li key={link} className={classItem}>
+              <Link
+                activeClass='active'
+                spy
+                smooth
+                hashSpy
+                isDynamic
+                className={classLink}
+                to={link}
+                onClick={() => {
+                  if (setIsActive) {
+                    setIsActive(false);
+                  }
+                }}
+              >
+                {link}
+                {isBurger && <ArrowIcon />}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     );
   }

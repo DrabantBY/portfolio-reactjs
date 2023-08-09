@@ -3,9 +3,7 @@ import useFormState from '../../hooks/useFormState';
 import FieldInput from '../UI/FieldInput';
 import FieldDate from '../UI/FieldDate';
 import FieldSelect from '../UI/FieldSelect';
-
 // import NumberField from '../UI/NumberField';
-// import { TIME, TICKETS } from '../../constants';
 import { ReactComponent as DateIcon } from '../../assets/form.svg/date.svg';
 import { ReactComponent as TimeIcon } from '../../assets/form.svg/time.svg';
 import { ReactComponent as NameIcon } from '../../assets/form.svg/name.svg';
@@ -58,9 +56,9 @@ const TicketsForm = () => {
   }, []);
 
   return (
-    <form className='tickets-form'>
+    <form className='form-tickets'>
       <FieldDate
-        className='tickets-form__field-form'
+        className='form-field form-tickets__form-field'
         type='date'
         name='date'
         placeholder='date'
@@ -71,7 +69,7 @@ const TicketsForm = () => {
       />
 
       <FieldSelect
-        className='tickets-form__field-form'
+        className='form-field form-tickets__form-field'
         name='time'
         options={TIME}
         placeholder='time'
@@ -82,7 +80,7 @@ const TicketsForm = () => {
       />
 
       <FieldInput
-        className='tickets-form__field-form'
+        className='form-field form-tickets__form-field'
         type='text'
         name='name'
         placeholder='name'
@@ -93,7 +91,7 @@ const TicketsForm = () => {
       />
 
       <FieldInput
-        className='tickets-form__field-form'
+        className='form-field form-tickets__form-field'
         type='email'
         name='email'
         placeholder='email'
@@ -104,7 +102,7 @@ const TicketsForm = () => {
       />
 
       <FieldInput
-        className='tickets-form__field-form'
+        className='form-field form-tickets__form-field'
         type='tel'
         name='phone'
         placeholder='phone'
@@ -115,7 +113,7 @@ const TicketsForm = () => {
       />
 
       <FieldSelect
-        className='tickets-form__field-form'
+        className='form-field form-tickets__form-field'
         name='price'
         options={TICKETS}
         placeholder='ticket type'

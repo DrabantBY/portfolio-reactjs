@@ -1,74 +1,59 @@
 import { memo, useState, useCallback } from 'react';
 import classnames from 'classnames';
+import { FieldSelectPropsType } from './types';
 import FieldRadio from '../FieldRadio';
 import getOptionLabel from '../../../utils/getOptionLabel';
 import './styles.scss';
 
-type FieldSelectPropsType = {
-  iconLeft: JSX.Element;
-  iconRight: JSX.Element;
-  className: string;
-  name: string;
-  placeholder: string;
-  value: string | number;
-  handleChange: React.ChangeEventHandler<HTMLInputElement>;
-  options: { value: string; label: string }[];
-};
+const FieldSelect = memo((props: FieldSelectPropsType): JSX.Element => {
+  const [isFocus, setIsFocus] = useState(false);
 
-const FieldSelect = memo(
-  ({
-    iconLeft,
-    iconRight,
-    className,
-    name,
-    value,
-    handleChange,
-    options,
-    placeholder,
-  }: FieldSelectPropsType): JSX.Element => {
-    const [isFocus, setIsFocus] = useState(false);
+  const classWrapper = classnames('form-field-select', props.className, {
+    open: isFocus,
+  });
 
-    const classWrapper = classnames('form-select', className, {
-      open: isFocus,
-    });
+  const handleOnChange: React.ChangeEventHandler<HTMLInputElement> =
+    useCallback((e) => {
+      props.handleChange(e);
+      setIsFocus(false);
+    }, []);
 
-    const handleOnChange: React.ChangeEventHandler<HTMLInputElement> =
-      useCallback(
-        (e) => {
-          handleChange(e);
-          setIsFocus(false);
-        },
-        [handleChange]
-      );
+  console.log(props.name, props.value);
 
-    console.log(name, value);
+  return (
+    <div className={classWrapper}>
+      {props.iconLeft}
+      {props.iconRight}
+      <div
+        className='form-field-select-value'
+        onClick={() => {
+          setIsFocus(!isFocus);
+        }}
+      >
+        {props.value
+          ? getOptionLabel(props.value.toString(), props.options)
+          : props.placeholder}
+      </div>
 
-    return (
-      <div className={classWrapper}>
-        {iconLeft}
-        {iconRight}
-        <div className='form-select-value' onClick={() => setIsFocus(!isFocus)}>
-          {value ? getOptionLabel(value.toString(), options) : placeholder}
-        </div>
-
-        {isFocus && (
-          <div className='form-select-list'>
-            {options.map((option) => (
+      {isFocus && (
+        <ul className='form-field-select-list'>
+          {props.options.map((option) => {
+            return (
               <FieldRadio
                 key={option.value}
-                className='form-select-option'
+                className='form-field-select-item'
                 label={option.label}
-                name={name}
+                name={props.name}
                 value={option.value}
                 handleChange={handleOnChange}
-                isChecked={value === option.value}
+                isChecked={props.value === option.value}
               />
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  }
-);
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+});
 
 export default FieldSelect;

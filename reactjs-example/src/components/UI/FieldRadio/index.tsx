@@ -1,40 +1,25 @@
 import { useId, memo } from 'react';
+import { FieldRadioPropsType } from './types';
 import './styles.scss';
 
-type FieldRadioPropsType = {
-  className: string;
-  label: string;
-  name: string;
-  value: string;
-  handleChange: React.ChangeEventHandler<HTMLInputElement>;
-  isChecked: boolean;
-};
+const FieldRadio = memo((props: FieldRadioPropsType): JSX.Element => {
+  const fieldId = useId();
 
-const FieldRadio = memo(
-  ({
-    className,
-    label,
-    name,
-    value,
-    handleChange,
-    isChecked,
-  }: FieldRadioPropsType): JSX.Element => {
-    const fieldId = useId();
-    console.log(name, 'radio', value);
-    return (
-      <div className={className}>
-        <input
-          id={fieldId}
-          type='radio'
-          name={name}
-          onChange={handleChange}
-          value={value}
-          checked={isChecked}
-        />
-        <label htmlFor={fieldId}>{label}</label>
-      </div>
-    );
-  }
-);
+  console.log(props.name, 'radio', props.value);
+
+  return (
+    <li className={props.className}>
+      <input
+        id={fieldId}
+        type='radio'
+        name={props.name}
+        onChange={props.handleChange}
+        value={props.value}
+        checked={props.isChecked}
+      />
+      <label htmlFor={fieldId}>{props.label}</label>
+    </li>
+  );
+});
 
 export default FieldRadio;

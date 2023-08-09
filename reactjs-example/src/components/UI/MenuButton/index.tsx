@@ -12,7 +12,9 @@ const MenuButton = (): JSX.Element => {
     <button
       type='button'
       className={classMenuBtn}
-      onClick={() => setIsActive(!isActive)}
+      onClick={() => {
+        setIsActive(!isActive);
+      }}
     >
       <span />
       {!isActive && <span />}

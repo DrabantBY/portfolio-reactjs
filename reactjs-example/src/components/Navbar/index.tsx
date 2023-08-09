@@ -8,7 +8,10 @@ import Overlay from '../UI/Overlay';
 
 const Navbar = (): JSX.Element => {
   const [isActive, setIsActive] = useState(false);
-  const providerValue = useMemo(() => ({ isActive, setIsActive }), [isActive]);
+
+  const providerValue = useMemo(() => {
+    return { isActive, setIsActive };
+  }, [isActive]);
 
   return (
     <MenuBurgerContext.Provider value={providerValue}>

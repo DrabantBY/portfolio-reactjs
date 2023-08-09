@@ -1,6 +1,6 @@
 @use '../../../var';
 
-.form-select {
+.form-field-select {
   position: relative;
   width: 100%;
   height: 4.5rem;
@@ -53,7 +53,7 @@
     background-color: var.$white;
   }
 
-  &-option {
+  &-item {
     display: flex;
     align-items: center;
     min-height: 4.5rem;

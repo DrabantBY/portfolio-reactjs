@@ -1,61 +1,44 @@
 import { useEffect, useRef, useMemo, memo } from 'react';
 import classnames from 'classnames';
+import { FieldDatePropsType } from './types';
 import getCurrentDate from '../../../utils/getCurrentDate';
 import './styles.scss';
 
-type FieldDatePropsType = {
-  iconLeft: JSX.Element;
-  iconRight: JSX.Element;
-  className: string;
-  type: string;
-  name: string;
-  placeholder: string;
-  value: string | number;
-  handleChange: React.ChangeEventHandler<HTMLInputElement>;
-};
+const FieldDate = memo((props: FieldDatePropsType): JSX.Element => {
+  const classInput = classnames({ active: props.value });
 
-const FieldDate = memo(
-  ({
-    iconLeft,
-    iconRight,
-    className,
-    type,
-    name,
-    placeholder,
-    value,
-    handleChange,
-  }: FieldDatePropsType): JSX.Element => {
-    const classInput = classnames({ active: value });
-    const classField = classnames('field-form-arrow', className);
+  const classField = classnames('form-field-date', props.className);
 
-    const inputRef = useRef<HTMLInputElement>(null);
-    const minValue = useMemo(() => getCurrentDate(), []);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-    useEffect(() => {
-      if (inputRef.current) {
-        inputRef.current.blur();
-      }
-    }, [value]);
+  const minValue = useMemo(() => {
+    return getCurrentDate();
+  }, []);
 
-    console.log(name, value);
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
+  }, [props.value]);
 
-    return (
-      <div className={classField}>
-        {iconLeft}
-        {iconRight}
-        <input
-          className={classInput}
-          type={type}
-          name={name}
-          placeholder={placeholder}
-          min={minValue}
-          onChange={handleChange}
-          value={value}
-          ref={inputRef}
-        />
-      </div>
-    );
-  }
-);
+  console.log(props.name, props.value);
+
+  return (
+    <div className={classField}>
+      {props.iconLeft}
+      {props.iconRight}
+      <input
+        className={classInput}
+        type={props.type}
+        name={props.name}
+        placeholder={props.placeholder}
+        min={minValue}
+        onChange={props.handleChange}
+        value={props.value}
+        ref={inputRef}
+      />
+    </div>
+  );
+});
 
 export default FieldDate;

@@ -24,16 +24,18 @@ const Location = (): JSX.Element => {
       style={{ maxWidth: '960px', height: '620px' }}
     >
       <NavigationControl />
-      {MARKERS.map(({ longitude, latitude }, index) => (
-        <Marker
-          key={longitude + latitude}
-          longitude={longitude}
-          latitude={latitude}
-          anchor='bottom'
-        >
-          <MarkerIcon fill={index ? 'gray' : 'black'} />
-        </Marker>
-      ))}
+      {MARKERS.map(({ longitude, latitude }, index) => {
+        return (
+          <Marker
+            key={longitude + latitude}
+            longitude={longitude}
+            latitude={latitude}
+            anchor='bottom'
+          >
+            <MarkerIcon fill={index ? 'gray' : 'black'} />
+          </Marker>
+        );
+      })}
     </Map>
   );
 };

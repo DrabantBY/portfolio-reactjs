@@ -15,7 +15,9 @@ const Logo = ({ position }: LogoPropsType): JSX.Element => {
     <Link
       className={`logo navigation__logo ${position}__navigation-logo`}
       to='/'
-      onClick={() => setIsActive(false)}
+      onClick={() => {
+        setIsActive(false);
+      }}
     >
       <LogoIcon />
       louvre

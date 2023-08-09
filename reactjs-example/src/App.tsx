@@ -9,7 +9,9 @@ import Tickets from './pages/Tickets';
 import Parallax from './components/Parallax';
 import Spinner from './components/UI/Spinner';
 
-const Tour = lazy(() => import('./pages/Tour'));
+const Tour = lazy(() => {
+  return import('./pages/Tour');
+});
 
 const router = createBrowserRouter([
   {

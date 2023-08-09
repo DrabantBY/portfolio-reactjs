@@ -7,7 +7,9 @@ type MenuBurgerType = {
 
 const MenuBurgerContext = createContext<MenuBurgerType>({
   isActive: false,
-  setIsActive: () => false,
+  setIsActive: () => {
+    return false;
+  },
 });
 
 export default MenuBurgerContext;

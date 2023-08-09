@@ -16,9 +16,9 @@ const Visiting = (): JSX.Element => {
     <Section sectionId='visiting'>
       <h2 className='section-title section-visiting__title'>virtual tour</h2>
       <ul className='cards section-visiting__cards'>
-        {TITLES.map((title, index) => (
-          <Card key={title} title={title} index={index} />
-        ))}
+        {TITLES.map((title, index) => {
+          return <Card key={title} title={title} index={index} />;
+        })}
       </ul>
     </Section>
   );

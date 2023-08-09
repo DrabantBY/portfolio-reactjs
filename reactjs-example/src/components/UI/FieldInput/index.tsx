@@ -1,49 +1,28 @@
 import { memo } from 'react';
 import classnames from 'classnames';
+import { FieldInputPropsType } from './types';
 import './styles.scss';
 
-type FieldInputPropsType = {
-  icon: JSX.Element;
-  className: string;
-  type: string;
-  name: string;
-  placeholder: string;
-  value: string | number;
-  handleChange: React.ChangeEventHandler<HTMLInputElement>;
-  isError: boolean;
-};
+const FieldInput = memo((props: FieldInputPropsType): JSX.Element => {
+  const classField = classnames('form-field-input', props.className, {
+    error: props.isError,
+  });
 
-const FieldInput = memo(
-  ({
-    icon,
-    className,
-    type,
-    name,
-    placeholder,
-    value,
-    handleChange,
-    isError,
-  }: FieldInputPropsType): JSX.Element => {
-    const classField = classnames('field-form', className, {
-      error: isError,
-    });
+  console.log(props.name, props.value);
 
-    console.log(name, value);
-
-    return (
-      <div className={classField}>
-        {icon}
-        <input
-          type={type}
-          name={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={handleChange}
-        />
-        {isError && <span>* invalid {name}</span>}
-      </div>
-    );
-  }
-);
+  return (
+    <div className={classField}>
+      {props.icon}
+      <input
+        type={props.type}
+        name={props.name}
+        placeholder={props.placeholder}
+        value={props.value}
+        onChange={props.handleChange}
+      />
+      {props.isError && <span>* invalid {props.name}</span>}
+    </div>
+  );
+});
 
 export default FieldInput;
