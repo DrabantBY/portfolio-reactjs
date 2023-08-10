@@ -44,12 +44,7 @@ const Menu = memo(
     );
 
     return (
-      <ul
-        className={classMenu}
-        onClick={(e) => {
-          e.preventDefault();
-        }}
-      >
+      <ul className={classMenu}>
         {MENU.map((link) => {
           return (
             <li key={link} className={classItem}>

@@ -4,7 +4,7 @@ import './styles.scss';
 const ExploreSlider = (): JSX.Element => {
   const [canMove, setCanMove] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);
-  const thumbRef = useRef<HTMLDivElement>(null);
+  const thumbRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (eventPosition: number): void => {
@@ -57,7 +57,8 @@ const ExploreSlider = (): JSX.Element => {
         />
       </div>
 
-      <div
+      <button
+        type='button'
         className='slider-explore__thumb section-explore__thumb'
         ref={thumbRef}
         onMouseDown={() => {
@@ -65,7 +66,7 @@ const ExploreSlider = (): JSX.Element => {
         }}
       >
         <span className='slider-explore__thumb-ring section-explore__thumb-ring' />
-      </div>
+      </button>
 
       <div className='slider-explore__figure-after section-explore__figure-after'>
         <img

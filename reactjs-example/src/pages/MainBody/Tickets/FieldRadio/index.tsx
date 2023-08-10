@@ -5,8 +5,6 @@ import './styles.scss';
 const FieldRadio = memo((props: FieldRadioPropsType): JSX.Element => {
   const fieldId = useId();
 
-  console.log(props.name, 'radio', props.value);
-
   return (
     <li className={props.className}>
       <input

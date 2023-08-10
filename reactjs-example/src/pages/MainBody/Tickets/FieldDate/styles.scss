@@ -1,18 +1,8 @@
 @use '../../../../var';
 
 .form-field-date {
-  position: relative;
-  height: 4.5rem;
-  border: 0.2rem solid var.$bg-black;
-
   input[type='date'],
   input[type='time'] {
-    width: 100%;
-    height: 100%;
-    padding-inline-start: 4.5rem;
-    font-size: 1.8rem;
-    line-height: 2.1rem;
-
     &::-webkit-calendar-picker-indicator {
       position: absolute;
       top: 0;

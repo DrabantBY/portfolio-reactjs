@@ -18,4 +18,20 @@
       background-color: var.$red;
     }
   }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+
+    // @media (max-width: var.$tablet) {
+    //   flex-direction: column;
+    // }
+  }
+
+  &__figure {
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
 }

@@ -6,7 +6,12 @@ const Tickets = (): JSX.Element => {
   return (
     <Section sectionId='tickets'>
       <h2 className='section-title section-tickets__title'>buy tickets</h2>
-      <TicketsForm />
+      <div className='section-tickets__body'>
+        <figure className='section-tickets__figure'>
+          <img src='picture.jpg' alt='section figure' />
+        </figure>
+        <TicketsForm />
+      </div>
     </Section>
   );
 };

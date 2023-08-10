@@ -49,6 +49,9 @@ type ActionType =
   | {
       type: 'time';
       time: string;
+    }
+  | {
+      type: 'reset';
     };
 
 const initialState: FormInitStateType = {
@@ -138,6 +141,9 @@ const reducer = (state: FormInitStateType, action: ActionType) => {
         time: action.time,
       };
 
+    case 'reset':
+      return initialState;
+
     default:
       return state;
   }
@@ -150,12 +156,15 @@ const useFormState = () => {
     localStorage.setItem('formState', JSON.stringify(state));
   }, [state]);
 
-  const setAmount = useCallback((name: string, value: number, step: 1 | -1) => {
-    return dispatch({
-      type: name,
-      [name]: value + step,
-    } as ActionType);
-  }, []);
+  const setNumberValue = useCallback(
+    (name: string, value: number, step: 1 | -1) => {
+      dispatch({
+        type: name,
+        [name]: value + step,
+      } as ActionType);
+    },
+    []
+  );
 
   const setInputValue: React.ChangeEventHandler<HTMLInputElement> = useCallback(
     (e) => {
@@ -167,7 +176,13 @@ const useFormState = () => {
     []
   );
 
-  return { state, setAmount, setInputValue };
+  const setInitState = useCallback(() => {
+    dispatch({
+      type: 'reset',
+    });
+  }, []);
+
+  return { state, setNumberValue, setInputValue, setInitState };
 };
 
 export default useFormState;

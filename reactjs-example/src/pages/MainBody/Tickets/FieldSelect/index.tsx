@@ -7,24 +7,27 @@ import './styles.scss';
 
 const FieldSelect = memo((props: FieldSelectPropsType): JSX.Element => {
   const [isFocus, setIsFocus] = useState(false);
+  const { handleChange } = props;
 
   const classWrapper = classnames('form-field-select', props.className, {
     open: isFocus,
   });
 
   const handleOnChange: React.ChangeEventHandler<HTMLInputElement> =
-    useCallback((e) => {
-      props.handleChange(e);
-      setIsFocus(false);
-    }, []);
-
-  console.log(props.name, props.value);
+    useCallback(
+      (e) => {
+        handleChange(e);
+        setIsFocus(false);
+      },
+      [handleChange]
+    );
 
   return (
     <div className={classWrapper}>
       {props.iconLeft}
       {props.iconRight}
-      <div
+      <button
+        type='button'
         className='form-field-select-value'
         onClick={() => {
           setIsFocus(!isFocus);
@@ -33,7 +36,7 @@ const FieldSelect = memo((props: FieldSelectPropsType): JSX.Element => {
         {props.value
           ? getOptionLabel(props.value.toString(), props.options)
           : props.placeholder}
-      </div>
+      </button>
 
       {isFocus && (
         <ul className='form-field-select-list'>

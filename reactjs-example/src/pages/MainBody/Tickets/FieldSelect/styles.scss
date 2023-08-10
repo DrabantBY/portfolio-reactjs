@@ -31,11 +31,11 @@
     display: flex;
     align-items: center;
     height: 100%;
+    width: 100%;
     padding-inline-start: 4.5rem;
     font-size: 1.8rem;
     line-height: 2.1rem;
     text-transform: capitalize;
-    cursor: pointer;
   }
 
   &-list {
@@ -47,7 +47,7 @@
     display: flex;
     flex-direction: column;
     width: calc(100% + 0.4rem);
-    max-height: 13.9rem;
+    max-height: 12.4rem;
     transform: translateY(100%);
     border: 0.2rem solid currentColor;
     background-color: var.$white;
@@ -55,18 +55,18 @@
 
   &-item {
     display: flex;
-    min-height: 4.5rem;
+    min-height: 4rem;
     font-weight: 300;
     font-size: 1.8rem;
     line-height: 2.1rem;
     text-transform: capitalize;
 
     input[type='radio'] {
-      -webkit-appearance: none;
-      appearance: none;
+      display: none;
     }
 
     label {
+      flex-grow: 1;
       padding-inline-start: 4.5rem;
       display: flex;
       align-items: center;
@@ -79,6 +79,7 @@
     }
 
     &:has(input[type='radio']:checked) {
+      font-weight: 400;
       color: var.$gold-active;
     }
   }

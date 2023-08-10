@@ -8,8 +8,6 @@ const FieldInput = memo((props: FieldInputPropsType): JSX.Element => {
     error: props.isError,
   });
 
-  console.log(props.name, props.value);
-
   return (
     <div className={classField}>
       {props.icon}

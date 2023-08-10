@@ -8,6 +8,7 @@ module.exports = {
     'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
+    'prettier',
   ],
   parserOptions: {
     project: './tsconfig.json',
@@ -15,7 +16,7 @@ module.exports = {
   },
   ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'prettier'],
   rules: {
     'jsx-quotes': ['warn', 'prefer-single'],
     'react-refresh/only-export-components': [
@@ -30,6 +31,17 @@ module.exports = {
       },
     ],
     'arrow-body-style': ['warn', 'always'],
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        jsxSingleQuote: true,
+        bracketSpacing: true,
+        bracketSameLine: false,
+        endOfLine: 'auto',
+        trailingComma: 'es5',
+      },
+    ],
 
     // 'react/function-component-definition': 'off',
     // 'arrow-body-style': 'off',

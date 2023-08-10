@@ -1,10 +1,6 @@
 @use '../../../../var';
 
 .form-field-input {
-  position: relative;
-  height: 4.5rem;
-  border: 0.2rem solid var.$bg-black;
-
   &.error {
     border-color: var.$red;
 
@@ -17,17 +13,8 @@
     }
   }
 
-  input {
-    width: 100%;
-    height: 100%;
-    padding-inline-start: 4.5rem;
-    font-size: 1.8rem;
-    line-height: 2.1rem;
-    cursor: pointer;
-
-    &::placeholder {
-      text-transform: capitalize;
-    }
+  input::placeholder {
+    text-transform: capitalize;
   }
 
   svg {

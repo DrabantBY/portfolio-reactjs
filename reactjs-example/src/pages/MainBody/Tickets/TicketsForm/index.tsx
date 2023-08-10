@@ -3,7 +3,7 @@ import useFormState from '../../../../hooks/useFormState';
 import FieldInput from '../FieldInput';
 import FieldDate from '../FieldDate';
 import FieldSelect from '../FieldSelect';
-// import NumberField from '../UI/NumberField';
+import FieldNumber from '../FieldNumber';
 import { ReactComponent as DateIcon } from '../../../../assets/svg/ticket/date.svg';
 import { ReactComponent as TimeIcon } from '../../../../assets/svg/ticket/time.svg';
 import { ReactComponent as NameIcon } from '../../../../assets/svg/ticket/name.svg';
@@ -21,7 +21,12 @@ const TICKETS = [
 ];
 
 const TicketsForm = (): JSX.Element => {
-  const { state, setInputValue } = useFormState();
+  const { state, setNumberValue, setInputValue, setInitState } = useFormState();
+
+  const basicPriceValue = state.price ? `${state.price} €` : 'set ticket type';
+  const seniorPriceValue = state.price
+    ? `${Number(state.price) / 2} €`
+    : 'set ticket type';
 
   const memoNameIcon = useMemo(() => {
     return <NameIcon />;
@@ -123,22 +128,36 @@ const TicketsForm = (): JSX.Element => {
         iconRight={memoArrowIcon}
       />
 
-      {/* <div className='booking-form__section'>
-        <NumberField
-          className='booking-form__number-field '
-          label={`basic 18+ (${state.price} €)`}
-          name='basic'
-          value={state.basic}
-          handleClick={setAmount}
-        />
-        <NumberField
-          className='booking-form__number-field '
-          label={`senior 65+ (${Number(state.price) / 2} €)`}
-          name='senior'
-          value={state.senior}
-          handleClick={setAmount}
-        />
-      </div> */}
+      <FieldNumber
+        className='form-field form-tickets__form-field'
+        label={`age 18+ (${basicPriceValue})`}
+        name='basic'
+        value={state.basic}
+        minValue={0}
+        maxValue={10}
+        handleClick={setNumberValue}
+      />
+
+      <FieldNumber
+        className='form-field form-tickets__form-field'
+        label={`age 65+ (${seniorPriceValue})`}
+        name='senior'
+        value={state.senior}
+        minValue={0}
+        maxValue={10}
+        handleClick={setNumberValue}
+      />
+
+      <div className='total-price form-tickets__total-price'>
+        Total: <span>{state.total}</span>
+      </div>
+
+      <div className='form-controls form-tickets__form-controls'>
+        <button type='button' onClick={setInitState}>
+          Reset
+        </button>
+        <button type='submit'>Book</button>
+      </div>
     </form>
   );
 };

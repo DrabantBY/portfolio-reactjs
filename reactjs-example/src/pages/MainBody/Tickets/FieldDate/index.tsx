@@ -21,8 +21,6 @@ const FieldDate = memo((props: FieldDatePropsType): JSX.Element => {
     }
   }, [props.value]);
 
-  console.log(props.name, props.value);
-
   return (
     <div className={classField}>
       {props.iconLeft}
