@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
+  row-gap: 2rem;
 
   width: 46rem;
   padding-block: 3rem;
@@ -107,7 +108,37 @@
   }
 
   &__total-price {
-    color: var.$bg-black;
+    display: flex;
+    align-items: center;
+
+    color: var.$gold;
     border-bottom: 0.2rem solid var.$red;
+    border-top: 0.2rem solid var.$red;
+  }
+
+  &__form-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  &__btn-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    font-weight: 400;
+    font-size: 2rem;
+    color: var.$white;
+    background-color: var.$red;
+    flex-grow: 1;
+
+    &:hover {
+      background-color: var.$gold-hover;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: var.$gray;
+    }
   }
 }

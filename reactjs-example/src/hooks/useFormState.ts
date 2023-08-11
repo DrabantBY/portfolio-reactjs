@@ -1,10 +1,5 @@
 import { useReducer, useEffect, useCallback } from 'react';
 
-type FieldValueType = {
-  value: string;
-  error: boolean;
-};
-
 type FormInitStateType = {
   price: string;
   basic: number;
@@ -12,9 +7,13 @@ type FormInitStateType = {
   total: number;
   date: string;
   time: string;
-  name: FieldValueType;
-  phone: FieldValueType;
-  email: FieldValueType;
+  name: string;
+  isNameError: boolean;
+  phone: string;
+  isPhoneError: boolean;
+  email: string;
+  isEmailError: boolean;
+  isFormClear: boolean;
 };
 
 type ActionType =
@@ -61,9 +60,36 @@ const initialState: FormInitStateType = {
   total: 0,
   date: '',
   time: '',
-  name: { value: '', error: false },
-  phone: { value: '', error: false },
-  email: { value: '', error: false },
+  name: '',
+  isNameError: false,
+  phone: '',
+  isPhoneError: false,
+  email: '',
+  isEmailError: false,
+  isFormClear: true,
+};
+
+const checkIsFormClear = (
+  store: FormInitStateType,
+  props: (keyof FormInitStateType)[]
+): boolean => {
+  return Object.keys(store)
+    .filter((key) => {
+      return !props.some((prop) => {
+        return prop === key;
+      });
+    })
+    .every((key) => {
+      return !store[key as keyof FormInitStateType];
+    });
+};
+
+const setIsFormClear = (
+  value: number | string | boolean,
+  store: FormInitStateType,
+  keys: (keyof FormInitStateType)[]
+) => {
+  return value ? false : checkIsFormClear(store, keys);
 };
 
 const getInitialState = (): FormInitStateType => {
@@ -80,6 +106,10 @@ const reducer = (state: FormInitStateType, action: ActionType) => {
         total:
           Number(action.price) * state.basic +
           (Number(action.price) * state.senior) / 2,
+        isFormClear: setIsFormClear(action.price, state, [
+          'isFormClear',
+          'price',
+        ]),
       };
 
     case 'basic':
@@ -89,6 +119,10 @@ const reducer = (state: FormInitStateType, action: ActionType) => {
         total:
           Number(state.price) * action.basic +
           (Number(state.price) * state.senior) / 2,
+        isFormClear: setIsFormClear(action.basic, state, [
+          'isFormClear',
+          'basic',
+        ]),
       };
 
     case 'senior':
@@ -98,47 +132,69 @@ const reducer = (state: FormInitStateType, action: ActionType) => {
         total:
           Number(state.price) * state.basic +
           (Number(state.price) * action.senior) / 2,
+        isFormClear: setIsFormClear(action.senior, state, [
+          'isFormClear',
+          'senior',
+        ]),
       };
 
     case 'name':
       return {
         ...state,
-        name: {
-          value: action.name,
-          error: !/^([a-z\s]{3,15})?$/i.test(action.name),
-        },
+        name: action.name,
+        isNameError: !/^([a-z\s]{3,15})?$/i.test(action.name),
+        isFormClear: setIsFormClear(action.name, state, [
+          'isFormClear',
+          'isNameError',
+          'name',
+        ]),
       };
 
     case 'phone':
       return {
         ...state,
-        phone: {
-          value: action.phone,
-          error: !/^(\d{6,10})?$/.test(action.phone),
-        },
+        phone: action.phone,
+        isPhoneError: !/^(\d{6,10})?$/.test(action.phone),
+        isFormClear: setIsFormClear(action.phone, state, [
+          'isFormClear',
+          'isPhoneError',
+          'phone',
+        ]),
       };
 
     case 'email':
       return {
         ...state,
-        email: {
-          value: action.email,
-          error: !/^([a-zA-Z\d_-]{3,15}@[a-z]{4,}\.[a-z]{2,})?$/i.test(
-            action.email
-          ),
-        },
+        email: action.email,
+        isEmailError: !/^([a-zA-Z\d_-]{3,15}@[a-z]{4,}\.[a-z]{2,})?$/i.test(
+          action.email
+        ),
+
+        isFormClear: setIsFormClear(action.email, state, [
+          'isFormClear',
+          'isEmailError',
+          'email',
+        ]),
       };
 
     case 'date':
       return {
         ...state,
         date: action.date,
+        isFormClear: setIsFormClear(action.date, state, [
+          'isFormClear',
+          'date',
+        ]),
       };
 
     case 'time':
       return {
         ...state,
         time: action.time,
+        isFormClear: setIsFormClear(action.time, state, [
+          'isFormClear',
+          'time',
+        ]),
       };
 
     case 'reset':

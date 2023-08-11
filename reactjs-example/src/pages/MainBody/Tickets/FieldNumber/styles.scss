@@ -38,7 +38,13 @@
     text-align: center;
     color: var.$white;
     background-color: var.$bg-black;
+
+    &:hover {
+      background-color: var.$gold;
+    }
+
     &:disabled {
+      cursor: not-allowed;
       background-color: var.$gray;
     }
 

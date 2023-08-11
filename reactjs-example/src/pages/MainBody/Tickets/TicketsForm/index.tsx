@@ -61,7 +61,12 @@ const TicketsForm = (): JSX.Element => {
   }, []);
 
   return (
-    <form className='form-tickets'>
+    <form
+      className='form-tickets'
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <FieldDate
         className='form-field form-tickets__form-field'
         type='date'
@@ -89,9 +94,9 @@ const TicketsForm = (): JSX.Element => {
         type='text'
         name='name'
         placeholder='name'
-        value={state.name.value}
+        value={state.name}
         handleChange={setInputValue}
-        isError={state.name.error}
+        isError={state.isNameError}
         icon={memoNameIcon}
       />
 
@@ -100,9 +105,9 @@ const TicketsForm = (): JSX.Element => {
         type='email'
         name='email'
         placeholder='email'
-        value={state.email.value}
+        value={state.email}
         handleChange={setInputValue}
-        isError={state.email.error}
+        isError={state.isEmailError}
         icon={memoEmailIcon}
       />
 
@@ -111,9 +116,9 @@ const TicketsForm = (): JSX.Element => {
         type='tel'
         name='phone'
         placeholder='phone'
-        value={state.phone.value}
+        value={state.phone}
         handleChange={setInputValue}
-        isError={state.phone.error}
+        isError={state.isPhoneError}
         icon={memoTelIcon}
       />
 
@@ -149,14 +154,21 @@ const TicketsForm = (): JSX.Element => {
       />
 
       <div className='total-price form-tickets__total-price'>
-        Total: <span>{state.total}</span>
+        Total:&nbsp;<span>{state.total}</span>&nbsp;€
       </div>
 
       <div className='form-controls form-tickets__form-controls'>
-        <button type='button' onClick={setInitState}>
+        <button
+          disabled={state.isFormClear}
+          className='btn-control form-tickets__btn-control'
+          type='button'
+          onClick={setInitState}
+        >
           Reset
         </button>
-        <button type='submit'>Book</button>
+        <button className='btn-control form-tickets__btn-control' type='submit'>
+          Book
+        </button>
       </div>
     </form>
   );
