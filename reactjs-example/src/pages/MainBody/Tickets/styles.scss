@@ -3,7 +3,7 @@
 .section-tickets {
   background-color: var.$white;
 
-  &__title {
+  &__section-title {
     position: relative;
     color: var.$gold;
     margin-block-end: var(--section-title-mb);
@@ -19,16 +19,19 @@
     }
   }
 
-  &__body {
-    // display: flex;
-    // justify-content: space-between;
+  &__section-body {
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
 
-    // @media (max-width: var.$tablet) {
-    //   flex-direction: column;
-    // }
+    @media (max-width: var.$tablet) {
+      flex-direction: column-reverse;
+    }
   }
 
-  &__figure {
+  &__section-figure {
     img {
       display: block;
       width: 100%;

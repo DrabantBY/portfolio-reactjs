@@ -65,6 +65,7 @@ const TicketsForm = (): JSX.Element => {
       className='form-tickets'
       onSubmit={(e) => {
         e.preventDefault();
+        alert('Hello');
       }}
     >
       <FieldDate
@@ -93,7 +94,7 @@ const TicketsForm = (): JSX.Element => {
         className='form-field form-tickets__form-field'
         type='text'
         name='name'
-        placeholder='name'
+        placeholder='full name'
         value={state.name}
         handleChange={setInputValue}
         isError={state.isNameError}
@@ -159,14 +160,18 @@ const TicketsForm = (): JSX.Element => {
 
       <div className='form-controls form-tickets__form-controls'>
         <button
-          disabled={state.isFormClear}
+          disabled={state.isActiveResetBtn}
           className='btn-control form-tickets__btn-control'
           type='button'
           onClick={setInitState}
         >
           Reset
         </button>
-        <button className='btn-control form-tickets__btn-control' type='submit'>
+        <button
+          className='btn-control form-tickets__btn-control'
+          type='submit'
+          disabled={!state.isActiveSubmitBtn}
+        >
           Book
         </button>
       </div>

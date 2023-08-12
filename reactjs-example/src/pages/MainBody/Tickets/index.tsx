@@ -5,12 +5,14 @@ import './styles.scss';
 const Tickets = (): JSX.Element => {
   return (
     <Section sectionId='tickets'>
-      <h2 className='section-title section-tickets__title'>buy tickets</h2>
-      <div className='section-tickets__body'>
-        <figure className='section-tickets__figure'>
+      <h2 className='section-title section-tickets__section-title'>
+        buy tickets
+      </h2>
+      <div className='section-body section-tickets__section-body'>
+        <TicketsForm />
+        <figure className='section-figure section-tickets__section-figure'>
           <img src='picture.jpg' alt='section figure' />
         </figure>
-        <TicketsForm />
       </div>
     </Section>
   );
