@@ -99,6 +99,7 @@ const TicketsForm = (): JSX.Element => {
         handleChange={setInputValue}
         isError={state.isNameError}
         icon={memoNameIcon}
+        message={import.meta.env.VITE_NAME_ERROR}
       />
 
       <FieldInput
@@ -110,6 +111,7 @@ const TicketsForm = (): JSX.Element => {
         handleChange={setInputValue}
         isError={state.isEmailError}
         icon={memoEmailIcon}
+        message={import.meta.env.VITE_EMAIL_ERROR}
       />
 
       <FieldInput
@@ -121,6 +123,7 @@ const TicketsForm = (): JSX.Element => {
         handleChange={setInputValue}
         isError={state.isPhoneError}
         icon={memoTelIcon}
+        message={import.meta.env.VITE_PHONE_ERROR}
       />
 
       <FieldSelect

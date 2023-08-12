@@ -18,7 +18,7 @@ const FieldInput = memo((props: FieldInputPropsType): JSX.Element => {
         value={props.value}
         onChange={props.handleChange}
       />
-      {props.isError && <span>* invalid {props.name}</span>}
+      {props.isError && <span>{props.message}</span>}
     </div>
   );
 });

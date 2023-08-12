@@ -7,4 +7,5 @@ export type FieldInputPropsType = {
   value: string | number;
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
   isError: boolean;
+  message: string;
 };
