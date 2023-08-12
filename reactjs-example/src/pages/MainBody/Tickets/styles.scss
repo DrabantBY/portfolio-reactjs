@@ -4,19 +4,7 @@
   background-color: var.$white;
 
   &__section-title {
-    position: relative;
     color: var.$gold;
-    margin-block-end: var(--section-title-mb);
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -2.5rem;
-      width: 100%;
-      height: 0.3rem;
-      background-color: var.$red;
-    }
   }
 
   &__section-body {

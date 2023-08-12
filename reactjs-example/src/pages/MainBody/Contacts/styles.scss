@@ -3,23 +3,11 @@
 .section-contacts {
   background-color: var.$white;
 
-  &__title {
-    position: relative;
+  &__section-title {
     color: var.$gold;
-    margin-block-end: var(--section-title-mb);
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -2.5rem;
-      width: 100%;
-      height: 0.3rem;
-      background-color: var.$red;
-    }
   }
 
-  &__body {
+  &__section-body {
     display: flex;
     justify-content: space-between;
     row-gap: 4rem;

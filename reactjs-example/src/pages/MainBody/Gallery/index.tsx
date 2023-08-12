@@ -25,15 +25,12 @@ const Gallery = (): JSX.Element => {
   const galleryList = shuffleGalleryItems(GALLERY);
 
   return (
-    <Section sectionId='gallery'>
-      <h2 className='section-title section-gallery__title'>art gallery</h2>
-      <div className='gallery-wrapper section-gallery__gallery-wrapper'>
-        <ul className='gallery-list section-gallery__gallery-list'>
-          {galleryList.map((item) => {
-            return <Image key={item} item={item} />;
-          })}
-        </ul>
-      </div>
+    <Section sectionId='gallery' title='art gallery'>
+      <ul className='gallery-list section-gallery__gallery-list'>
+        {galleryList.map((item) => {
+          return <Image key={item} item={item} />;
+        })}
+      </ul>
     </Section>
   );
 };

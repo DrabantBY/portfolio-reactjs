@@ -1,60 +1,46 @@
 @use '../../../var';
 
 .section-explore {
-  &__container {
+  &__section-body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem;
+
+    @media (max-width: var.$desktop) {
+      gap: 4rem;
+
+      @media (max-width: var.$tablet) {
+        grid-template-columns: 1fr;
+
+        @media (max-width: var.$mobile) {
+          gap: 2rem;
+        }
+      }
+    }
+  }
+
+  &__section-text {
     display: flex;
-    column-gap: 3rem;
-    justify-content: space-between;
-
-    @media (max-width: var.$desktop) {
-      display: block;
-    }
-  }
-
-  &__body {
-    flex-basis: 66rem;
-
-    @media (max-width: var.$desktop) {
-      margin-block-end: 6rem;
-    }
-  }
-
-  &__title {
-    position: relative;
-    margin-block-end: var(--section-title-mb);
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -2.5rem;
-      width: 100%;
-      height: 0.3rem;
-      background-color: var.$red;
-    }
-  }
-
-  &__text {
+    flex-direction: column;
+    gap: 2.5rem;
     font-weight: 300;
     font-size: 2.2rem;
     line-height: 3.8rem;
-    margin-block-end: 2.5rem;
+
+    @media (max-width: var.$tablet) {
+      font-size: 2rem;
+      line-height: 2.8rem;
+      gap: 1.5rem;
+
+      @media (max-width: var.$mobile) {
+        font-size: 1.6rem;
+        line-height: 2.3rem;
+        gap: 1rem;
+      }
+    }
 
     span {
       color: var.$gold-select;
-    }
-
-    @media (max-width: var.$desktop) {
-      font-size: 2rem;
-      margin-block-end: 0;
-
-      &:last-child {
-        display: none;
-      }
-
-      @media (max-width: var.$tablet) {
-        display: none;
-      }
     }
   }
 }

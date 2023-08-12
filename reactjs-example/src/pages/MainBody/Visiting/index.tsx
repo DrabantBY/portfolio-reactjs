@@ -13,8 +13,7 @@ const TITLES = [
 
 const Visiting = (): JSX.Element => {
   return (
-    <Section sectionId='visiting'>
-      <h2 className='section-title section-visiting__title'>virtual tour</h2>
+    <Section sectionId='visiting' title='virtual tour'>
       <ul className='cards section-visiting__cards'>
         {TITLES.map((title, index) => {
           return <Card key={title} title={title} index={index} />;

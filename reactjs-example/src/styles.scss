@@ -171,12 +171,24 @@ section {
 }
 
 h2 {
+  position: relative;
+  margin-block-end: var(--section-title-mb);
   font-family: 'Forum';
   font-weight: 400;
   font-size: var(--h2-fs);
   line-height: var(--h2-lh);
   letter-spacing: 0.5rem;
   text-transform: uppercase;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2.5rem;
+    width: 100%;
+    height: 0.3rem;
+    background-color: var.$red;
+  }
 }
 
 #root {

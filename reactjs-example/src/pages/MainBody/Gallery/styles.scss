@@ -13,19 +13,7 @@
     --column-count: 2;
   }
 
-  &__title {
-    margin-block-end: 7.5rem;
-
-    @media (max-width: var.$desktop) {
-      margin-block-end: 6rem;
-
-      @media (max-width: var.$tablet) {
-        margin-block-end: 4rem;
-      }
-    }
-  }
-
-  &__gallery-wrapper {
+  &__section-body {
     position: relative;
     overflow-y: hidden;
     max-height: 1960px;

@@ -2,5 +2,8 @@
 
 .section-video {
   background-color: var.$white;
-  color: var.$gold;
+
+  &__section-title {
+    color: var.$gold;
+  }
 }
