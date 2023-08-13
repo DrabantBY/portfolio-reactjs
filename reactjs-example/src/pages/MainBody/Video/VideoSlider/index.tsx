@@ -1,53 +1,77 @@
-import { useRef, useEffect } from 'react';
-import { register } from 'swiper/element/bundle';
-import 'swiper/element/css/navigation';
-import 'swiper/element/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import SliderControls from '../SliderControls';
 
-register();
+import 'swiper/scss';
+import './styles.scss';
 
 export const VIDEO = [
-  'https://www.youtube.com/embed/zp1BXPX8jcU',
-  'https://www.youtube.com/embed/Vi5D6FKhRmo',
-  'https://www.youtube.com/embed/NOhDysLnTvY',
-  'https://www.youtube.com/embed/aWmJ5DgyWPI',
-  'https://www.youtube.com/embed/2OR0OCr6uRE',
+  'https://www.youtube.com/embed/JkPcA8dngB4',
+  'https://www.youtube.com/embed/mpnZuKH9OOY',
+  'https://www.youtube.com/embed/s1cgV3rTEn0',
+  'https://www.youtube.com/embed/aH0v4c5Z4KM',
+  'https://www.youtube.com/embed/RniS4FZA50Y',
+  'https://www.youtube.com/embed/9My9sw_ke_s',
+  'https://www.youtube.com/embed/y_CmwHT3WAM',
+  'https://www.youtube.com/embed/PI9K2AwAqHA',
+  'https://www.youtube.com/embed/n8lY_lm_BmA',
+  'https://www.youtube.com/embed/xAsQrZ9s-dE',
+  'https://www.youtube.com/embed/QoipxxZ6fyY',
 ];
 
 const VideoSlider = (): JSX.Element => {
-  const swiperElRef = useRef(null);
+  const pagination = {
+    el: '.slider-video__slider-pagination',
+    renderBullet: (_: number, className: string) => {
+      return `<button type="button" class="${className}"></button>`;
+    },
+  };
 
-  useEffect(() => {
-    // listen for Swiper events using addEventListener
-    swiperElRef.current.addEventListener('progress', (e) => {
-      const [swiper, progress] = e.detail;
-      console.log(e);
-    });
-
-    swiperElRef.current.addEventListener('slidechange', (e) => {
-      console.log('slide changed');
-    });
-  }, []);
+  const navigation = {
+    prevEl: '.slider-video__slider-btn-prev',
+    nextEl: '.slider-video__slider-btn-next',
+  };
 
   return (
-    <swiper-container
-      ref={swiperElRef}
-      slides-per-view='3'
-      navigation='true'
-      pagination='true'
-    >
-      {VIDEO.map((video) => {
-        return (
-          <swiper-slide key={video}>
-            <iframe
-              width='100%'
-              src={video}
-              frameborder='1'
-              allowfullscreen
-            ></iframe>
-          </swiper-slide>
-        );
-      })}
-    </swiper-container>
+    <>
+      <Swiper
+        className='slider-video'
+        autoHeight
+        slidesPerView={1}
+        loop
+        loopedSlides={2}
+        navigation={navigation}
+        pagination={pagination}
+        modules={[Navigation, Pagination]}
+        breakpoints={{
+          769: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }}
+      >
+        {VIDEO.map((video) => {
+          return (
+            <SwiperSlide
+              key={video}
+              className='video-slide slider-video__video-slide'
+            >
+              <iframe
+                title={video}
+                src={video}
+                allowFullScreen
+                loading='lazy'
+              />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+      <SliderControls />
+    </>
   );
 };
 

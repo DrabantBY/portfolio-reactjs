@@ -47,11 +47,11 @@ const ExploreSlider = (): JSX.Element => {
   return (
     <div className='slider-explore section-explore__slider-explore'>
       <div
-        className='slider-explore__figure-before section-explore__figure-before'
+        className='figure-before slider-explore__figure-before section-explore__figure-before'
         ref={imageRef}
       >
         <img
-          className='slider-explore__image-before section-explore__image-before'
+          className='image-before slider-explore__image-before section-explore__image-before'
           src='explore/before.jpg'
           alt='before'
         />
@@ -59,18 +59,18 @@ const ExploreSlider = (): JSX.Element => {
 
       <button
         type='button'
-        className='slider-explore__thumb section-explore__thumb'
+        className='thumb slider-explore__thumb section-explore__thumb'
         ref={thumbRef}
         onMouseDown={() => {
           setCanMove(true);
         }}
       >
-        <span className='slider-explore__thumb-ring section-explore__thumb-ring' />
+        <span className='thumb-ring slider-explore__thumb-ring section-explore__thumb-ring' />
       </button>
 
-      <div className='slider-explore__figure-after section-explore__figure-after'>
+      <div className='figure-after slider-explore__figure-after section-explore__figure-after'>
         <img
-          className='slider-explore__image-after section-explore__image-after'
+          className='image-after slider-explore__image-after section-explore__image-after'
           src='explore/after.jpg'
           alt='after'
         />

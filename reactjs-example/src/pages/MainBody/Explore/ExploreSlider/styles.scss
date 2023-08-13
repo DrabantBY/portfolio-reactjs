@@ -52,6 +52,7 @@
     width: var(--thumb-width);
     height: 100%;
     cursor: col-resize;
+    transition: none;
 
     &-ring {
       position: absolute;
