@@ -1,7 +1,7 @@
 type SectionPropsType = {
   children: React.ReactNode;
   sectionId: string;
-  title: string;
+  title: string | null;
 };
 
 const Section = (props: SectionPropsType): JSX.Element => {
@@ -11,11 +11,13 @@ const Section = (props: SectionPropsType): JSX.Element => {
       className={`section section-${props.sectionId}`}
     >
       <div className={`container section-${props.sectionId}__container`}>
-        <h2
-          className={`section-title section-${props.sectionId}__section-title`}
-        >
-          {props.title}
-        </h2>
+        {props.title && (
+          <h2
+            className={`section-title section-${props.sectionId}__section-title`}
+          >
+            {props.title}
+          </h2>
+        )}
         <div
           className={`section-body section-${props.sectionId}__section-body`}
         >

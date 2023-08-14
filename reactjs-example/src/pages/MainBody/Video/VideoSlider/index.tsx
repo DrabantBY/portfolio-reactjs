@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import SliderControls from '../SliderControls';
-
 import 'swiper/scss';
 import './styles.scss';
 

@@ -1,3 +1,4 @@
+import Welcome from './Welcome';
 import Visiting from './Visiting';
 import Explore from './Explore';
 import Video from './Video';
@@ -9,6 +10,7 @@ import Parallax from '../../components/Parallax';
 const MainBody = (): JSX.Element => {
   return (
     <>
+      <Welcome />
       <Visiting />
       <Explore />
       <Video />

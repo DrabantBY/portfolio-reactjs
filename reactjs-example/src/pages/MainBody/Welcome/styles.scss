@@ -1,0 +1,10 @@
+@use '../../../var';
+
+.section-welcome {
+  background-color: var.$gold;
+  padding-block: 0;
+
+  &__section-body {
+    position: relative;
+  }
+}

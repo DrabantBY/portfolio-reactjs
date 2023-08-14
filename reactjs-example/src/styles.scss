@@ -13,6 +13,9 @@
   --h2-fs: 8rem;
   --h2-lh: 9rem;
   --title-mb: 7.5rem;
+  --discover-subtitle-fs: 2.8rem;
+  --discover-subtitle-lh: 3.3rem;
+  --discover-subtitle-mb: 7.5rem;
 
   @media (max-width: var.$desktop) {
     --header-height: 10rem;
@@ -21,6 +24,9 @@
     --h2-fs: 5rem;
     --h2-lh: 7.5rem;
     --title-mb: 4rem;
+    --discover-subtitle-fs: 2.4rem;
+    --discover-subtitle-lh: 3.8rem;
+    --discover-subtitle-mb: 5rem;
 
     @media (max-width: var.$tablet) {
       --header-height: 8rem;
@@ -29,11 +35,14 @@
       --h2-fs: 4rem;
       --h2-lh: 6rem;
       --title-mb: 2rem;
+      --discover-subtitle-fs: 2rem;
+      --discover-subtitle-lh: 2.3rem;
 
       @media (max-width: var.$mobile) {
         --header-height: 6rem;
         --h2-fs: 2.8rem;
         --h2-lh: 4rem;
+        --discover-subtitle-fs: 1.6rem;
       }
     }
   }
@@ -44,13 +53,6 @@
   // --link-ls: 0.2rem;
 
   // //? slogan
-  // --slogan-fs: 2.8rem;
-  // --slogan-lh: 3.3rem;
-  // --slogan-mb: 7.5rem;
-
-  // //? discover-link
-  // --discover-link-width: 36rem;
-  // --discover-link-height: 7.5rem;
 
   // //? slider
   // --slider-welcome-width: 100rem;
@@ -90,11 +92,6 @@
   // --btn-poster-size: 22rem;
 
   @media (max-width: var.$desktop) {
-    //   --slogan-fs: 2.4rem;
-    //   --slogan-lh: 2.8rem;
-    //   --slogan-mb: 5rem;
-    //   --discover-link-width: 30rem;
-    //   --discover-link-height: 6rem;
     //   --slider-welcome-width: 70rem;
     //   --controls-width: 100%;
     //   --controls-ml: 0;
@@ -113,12 +110,9 @@
     //   --btn-poster-size: 15.2rem;
 
     @media (max-width: var.$tablet) {
-      //     --slogan-fs: 2rem;
-      //     --slogan-lh: 2.3rem;
       //     --slider-welcome-width: 100%;
       //     --controls-height: 10rem;
       //     --controls-mt: 0;
-
       //     --video-screen-height: 38.5rem;
       //     --video-item-height: 20rem;
       //     --video-controls-gap: 3.5rem;
@@ -127,7 +121,6 @@
       //     --btn-poster-size: 8rem;
 
       @media (max-width: var.$mobile) {
-        //       --slogan-fs: 1.6rem;
         //       --controls-height: 8rem;
         //       --controls-gap: 2.5rem;
         //       --counter-fs: 1.6rem;
@@ -246,47 +239,6 @@ input {
     color: inherit;
   }
 }
-
-// select {
-//   border: none;
-
-//   &:focus {
-//     outline: none;
-//   }
-// }
-
-// input[type='range'] {
-//   appearance: none;
-//   -webkit-appearance: none;
-//   background-image: linear-gradient(
-//     to right,
-//     var(--bg-red) 0%,
-//     var(--bg-red) var(--value),
-//     var(--bg-gray) var(--value),
-//     var(--bg-gray) 100%
-//   );
-//   transition: all 0.1s linear;
-
-//   &::-webkit-slider-runnable-track {
-//     height: var(--track-height);
-//     -webkit-appearance: none;
-//     cursor: pointer;
-//   }
-
-//   &::-webkit-slider-thumb {
-//     -webkit-appearance: none;
-//     height: var(--thumb-size);
-//     width: var(--thumb-size);
-//     margin-block-start: var(--thumb-mt);
-//     border-radius: 100%;
-//     background-color: #ffffff;
-//     cursor: ew-resize;
-//   }
-
-//   &:focus {
-//     outline: none;
-//   }
-// }
 
 .container {
   max-width: 1480px;

@@ -1,6 +1,5 @@
 import { ReactComponent as NextIcon } from '../../../../assets/svg/video/next.svg';
 import { ReactComponent as PrevIcon } from '../../../../assets/svg/video/prev.svg';
-
 import './styles.scss';
 
 const SliderControls = (): JSX.Element => {
