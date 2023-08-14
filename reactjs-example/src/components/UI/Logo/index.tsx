@@ -8,12 +8,12 @@ type LogoPropsType = {
   position: 'header' | 'footer';
 };
 
-const Logo = ({ position }: LogoPropsType): JSX.Element => {
+const Logo = (props: LogoPropsType): JSX.Element => {
   const { setIsActive } = useContext(MenuBurgerContext);
 
   return (
     <Link
-      className={`logo navigation__logo ${position}__navigation-logo`}
+      className={`logo navigation__logo ${props.position}__navigation-logo`}
       to='/'
       onClick={() => {
         setIsActive(false);

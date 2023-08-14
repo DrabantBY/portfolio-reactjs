@@ -19,7 +19,7 @@
   height: 1.6rem;
   border-radius: 100%;
   background-color: var.$gray-bullet;
-  cursor: not-allowed;
+  cursor: auto;
 
   @media (max-width: var.$desktop) {
     width: 1.2rem;

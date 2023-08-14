@@ -13,64 +13,57 @@ type MenuPropsType = {
   setIsActive: React.Dispatch<React.SetStateAction<boolean>> | null;
 };
 
-const Menu = memo(
-  ({
-    position,
-    isBurger,
-    isActive,
-    setIsActive,
-  }: MenuPropsType): JSX.Element => {
-    const burger = isBurger ? 'menu-burger' : 'menu';
+const Menu = memo((props: MenuPropsType): JSX.Element => {
+  const burger = props.isBurger ? 'menu-burger' : 'menu';
 
-    const classMenu = classnames(
-      burger,
-      `navigation__${burger}`,
-      `${position}__${burger}`,
-      {
-        active: isActive,
-      }
-    );
+  const classMenu = classnames(
+    burger,
+    `navigation__${burger}`,
+    `${props.position}__${burger}`,
+    {
+      active: props.isActive,
+    }
+  );
 
-    const classItem = classnames(
-      `${burger}-item`,
-      `navigation__${burger}-item`,
-      `${position}__${burger}-item`
-    );
+  const classItem = classnames(
+    `${burger}-item`,
+    `navigation__${burger}-item`,
+    `${props.position}__${burger}-item`
+  );
 
-    const classLink = classnames(
-      `${burger}-link`,
-      `navigation__${burger}-link`,
-      `${position}__${burger}-link`
-    );
+  const classLink = classnames(
+    `${burger}-link`,
+    `navigation__${burger}-link`,
+    `${props.position}__${burger}-link`
+  );
 
-    return (
-      <ul className={classMenu}>
-        {MENU.map((link) => {
-          return (
-            <li key={link} className={classItem}>
-              <Link
-                activeClass='active'
-                spy
-                smooth
-                hashSpy
-                isDynamic
-                className={classLink}
-                to={link}
-                onClick={() => {
-                  if (setIsActive) {
-                    setIsActive(false);
-                  }
-                }}
-              >
-                {link}
-                {isBurger && <ArrowIcon />}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-);
+  return (
+    <ul className={classMenu}>
+      {MENU.map((link) => {
+        return (
+          <li key={link} className={classItem}>
+            <Link
+              activeClass='active'
+              spy
+              smooth
+              hashSpy
+              isDynamic
+              className={classLink}
+              to={link}
+              onClick={() => {
+                if (props.setIsActive) {
+                  props.setIsActive(false);
+                }
+              }}
+            >
+              {link}
+              {props.isBurger && <ArrowIcon />}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+});
 
 export default Menu;

@@ -42,6 +42,7 @@ module.exports = {
         trailingComma: 'es5',
       },
     ],
+    'react/destructuring-assignment': ['warn', 'never'],
 
     // 'react/function-component-definition': 'off',
     // 'arrow-body-style': 'off',

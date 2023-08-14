@@ -7,8 +7,8 @@ type CardPropsType = {
   index: number;
 };
 
-const Card = ({ title, index }: CardPropsType): JSX.Element => {
-  const transformedTitleItem = transformTitleItems(title);
+const Card = (props: CardPropsType): JSX.Element => {
+  const transformedTitleItem = transformTitleItems(props.title);
   return (
     <li className='cards-item section-visiting__cards-item'>
       <Link
@@ -18,15 +18,15 @@ const Card = ({ title, index }: CardPropsType): JSX.Element => {
         <figure>
           <img
             srcSet={`
-                     visiting/visiting_280_${index + 1}.jpg 280w,
-                     visiting/visiting_330_${index + 1}.jpg 330w,
-                     visiting/visiting_440_${index + 1}.jpg 440w`}
+                     visiting/visiting_280_${props.index + 1}.jpg 280w,
+                     visiting/visiting_330_${props.index + 1}.jpg 330w,
+                     visiting/visiting_440_${props.index + 1}.jpg 440w`}
             sizes='(max-width: 769px) 280px, (max-width: 1025px) 330px, 440px'
-            src={`visiting/visiting_440_${index + 1}.jpg`}
+            src={`visiting/visiting_440_${props.index + 1}.jpg`}
             alt='tour'
           />
           <figcaption className='cards-title section-visiting__cards-title'>
-            {title}
+            {props.title}
           </figcaption>
         </figure>
       </Link>

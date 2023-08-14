@@ -1,12 +1,13 @@
 import classnames from 'classnames';
 import useIntersection from '../../../../hooks/useIntersection';
+
 import './styles.scss';
 
 type ImagePropsType = {
   item: string;
 };
 
-const Image = ({ item }: ImagePropsType): JSX.Element => {
+const Image = (props: ImagePropsType): JSX.Element => {
   const { imageRef, isIntersection } = useIntersection();
 
   const classItem = classnames('gallery-item', 'section-gallery__gallery-item');
@@ -18,7 +19,12 @@ const Image = ({ item }: ImagePropsType): JSX.Element => {
 
   return (
     <li className={classItem}>
-      <img ref={imageRef} className={classImg} src={item} alt='gallery item' />
+      <img
+        ref={imageRef}
+        className={classImg}
+        src={props.item}
+        alt='gallery item'
+      />
     </li>
   );
 };
