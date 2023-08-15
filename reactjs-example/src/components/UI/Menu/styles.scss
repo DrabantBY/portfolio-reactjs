@@ -23,37 +23,34 @@
   &:hover {
     color: var.$gold-hover;
   }
-
-  &.active {
-    color: var.$gold-active;
-  }
 }
 
 .menu-burger {
-  display: none;
-
-  @media (max-width: var.$desktop) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem 0;
-  }
-
   position: fixed;
   top: 0;
   left: 0;
   z-index: 8;
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem 0;
   width: 100%;
   padding-block-start: calc(1.5rem + var(--header-height));
   padding-block-end: 2.5rem;
   padding-inline-start: 5.5rem;
   background-color: var.$bg-black;
-  transform: translateY(-100%);
-  transition: transform 0.2s linear;
+  animation-name: dropdown;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 
-  &.active {
-    transform: none;
+  @keyframes dropdown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
 
   &-link {
@@ -75,10 +72,6 @@
       svg path {
         fill: var.$gold-hover;
       }
-    }
-
-    &.active {
-      color: var.$gold-active;
     }
   }
 }

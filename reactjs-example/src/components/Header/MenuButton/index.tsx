@@ -1,26 +1,29 @@
-import { useContext } from 'react';
+import { memo } from 'react';
 import classnames from 'classnames';
-import MenuBurgerContext from '../../../context';
+
 import './styles.scss';
 
-const MenuButton = (): JSX.Element => {
-  const { isActive, setIsActive } = useContext(MenuBurgerContext);
+type MenuButtonPropsType = {
+  isActive: boolean;
+  onActive: (active: boolean) => void;
+};
 
-  const classMenuBtn = classnames('menu-btn', { active: isActive });
+const MenuButton = memo((props: MenuButtonPropsType): JSX.Element => {
+  const classMenuBtn = classnames('menu-btn', { active: props.isActive });
 
   return (
     <button
       type='button'
       className={classMenuBtn}
       onClick={() => {
-        setIsActive(!isActive);
+        props.onActive(!props.isActive);
       }}
     >
       <span />
-      {!isActive && <span />}
+      {!props.isActive && <span />}
       <span />
     </button>
   );
-};
+});
 
 export default MenuButton;

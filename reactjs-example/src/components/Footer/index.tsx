@@ -14,14 +14,9 @@ const Footer = (props: FooterPropsType): JSX.Element => {
     <footer className='footer'>
       <div className='container footer__container'>
         <div className='footer__body'>
-          <Logo position='footer' />
+          <Logo position='footer' onActive={null} />
           {props.isMenu && (
-            <Menu
-              position='footer'
-              isBurger={false}
-              isActive={false}
-              setIsActive={null}
-            />
+            <Menu position='footer' isBurger={false} onActive={null} />
           )}
           <SocialNet />
         </div>

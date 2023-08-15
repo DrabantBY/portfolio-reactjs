@@ -1,28 +1,28 @@
-import { useContext } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import MenuBurgerContext from '../../../context';
 import { ReactComponent as LogoIcon } from '../../../assets/svg/logo.svg';
 import './styles.scss';
 
 type LogoPropsType = {
   position: 'header' | 'footer';
+  onActive: ((active: boolean) => void) | null;
 };
 
-const Logo = (props: LogoPropsType): JSX.Element => {
-  const { setIsActive } = useContext(MenuBurgerContext);
-
+const Logo = memo((props: LogoPropsType): JSX.Element => {
   return (
     <Link
       className={`logo navigation__logo ${props.position}__navigation-logo`}
       to='/'
       onClick={() => {
-        setIsActive(false);
+        if (props.onActive) {
+          props.onActive(false);
+        }
       }}
     >
       <LogoIcon />
       louvre
     </Link>
   );
-};
+});
 
 export default Logo;

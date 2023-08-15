@@ -65,7 +65,6 @@ const TicketsForm = (): JSX.Element => {
       className='form-tickets'
       onSubmit={(e) => {
         e.preventDefault();
-        alert('Hello');
       }}
     >
       <FieldDate

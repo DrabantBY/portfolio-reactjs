@@ -1,33 +1,32 @@
-import { useState, useMemo } from 'react';
-import MenuBurgerContext from '../../../context';
-import MenuBurger from '../MenuBurger';
+import { useState, useEffect } from 'react';
+import Overlay from '../../UI/Overlay';
 import MenuButton from '../MenuButton';
-import Overlay from '../Overlay';
 import Logo from '../../UI/Logo';
 import Menu from '../../UI/Menu';
 
 const Navbar = (): JSX.Element => {
   const [isActive, setIsActive] = useState(false);
 
-  const providerValue = useMemo(() => {
-    return { isActive, setIsActive };
+  useEffect(() => {
+    if (isActive) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'initial';
+    }
   }, [isActive]);
 
   return (
-    <MenuBurgerContext.Provider value={providerValue}>
-      <Overlay />
-      <nav className='navigation header__navigation'>
-        <Logo position='header' />
-        <Menu
-          position='header'
-          isBurger={false}
-          isActive={false}
-          setIsActive={null}
-        />
-        <MenuBurger />
-        <MenuButton />
-      </nav>
-    </MenuBurgerContext.Provider>
+    <nav className='navigation header__navigation'>
+      {isActive && (
+        <Overlay>
+          <Menu position='header' isBurger onActive={setIsActive} />
+        </Overlay>
+      )}
+
+      <Logo position='header' onActive={setIsActive} />
+      <Menu position='header' isBurger={false} onActive={null} />
+      <MenuButton isActive={isActive} onActive={setIsActive} />
+    </nav>
   );
 };
 

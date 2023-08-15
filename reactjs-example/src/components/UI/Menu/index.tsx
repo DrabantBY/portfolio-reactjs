@@ -9,8 +9,7 @@ const MENU = ['visiting', 'explore', 'video', 'gallery', 'tickets', 'contacts'];
 type MenuPropsType = {
   position: 'header' | 'footer';
   isBurger: boolean;
-  isActive: boolean;
-  setIsActive: React.Dispatch<React.SetStateAction<boolean>> | null;
+  onActive: ((active: boolean) => void) | null;
 };
 
 const Menu = memo((props: MenuPropsType): JSX.Element => {
@@ -19,10 +18,7 @@ const Menu = memo((props: MenuPropsType): JSX.Element => {
   const classMenu = classnames(
     burger,
     `navigation__${burger}`,
-    `${props.position}__${burger}`,
-    {
-      active: props.isActive,
-    }
+    `${props.position}__${burger}`
   );
 
   const classItem = classnames(
@@ -51,8 +47,8 @@ const Menu = memo((props: MenuPropsType): JSX.Element => {
               className={classLink}
               to={link}
               onClick={() => {
-                if (props.setIsActive) {
-                  props.setIsActive(false);
+                if (props.onActive) {
+                  props.onActive(false);
                 }
               }}
             >
