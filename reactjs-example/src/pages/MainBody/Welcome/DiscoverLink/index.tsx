@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
 
-const Discover = (): JSX.Element => {
+const DiscoverLink = (): JSX.Element => {
   return (
     <div className='discover section-welcome__discover'>
-      <h1 className='discover-title section-welcome__discover-title'>
+      <h2 className='discover-title section-welcome__discover-title'>
         welcome to&nbsp;the&nbsp;louvre
-      </h1>
+      </h2>
       <p className='discover-subtitle section-welcome__discover-subtitle'>
         from the castle to the museum
       </p>
@@ -21,4 +21,4 @@ const Discover = (): JSX.Element => {
   );
 };
 
-export default Discover;
+export default DiscoverLink;

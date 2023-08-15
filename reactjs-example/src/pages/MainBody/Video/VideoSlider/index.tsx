@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import SliderControls from '../SliderControls';
+import VideoControls from '../VideoControls';
 import 'swiper/scss';
 import './styles.scss';
 
@@ -69,7 +69,7 @@ const VideoSlider = (): JSX.Element => {
           );
         })}
       </Swiper>
-      <SliderControls />
+      <VideoControls />
     </>
   );
 };

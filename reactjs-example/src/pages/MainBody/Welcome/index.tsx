@@ -1,12 +1,12 @@
 import Section from '../Section';
-import Discover from './Discover';
+import DiscoverLink from './DiscoverLink';
 import DiscoverSlider from './DiscoverSlider';
 import './styles.scss';
 
 const Welcome = (): JSX.Element => {
   return (
     <Section sectionId='welcome' title={null}>
-      <Discover />
+      <DiscoverLink />
       <DiscoverSlider />
     </Section>
   );

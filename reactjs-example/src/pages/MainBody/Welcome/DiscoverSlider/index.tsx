@@ -1,9 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import DiscoverControls from '../DiscoverControls';
 import 'swiper/scss';
 import './styles.scss';
 
-const SLIDES = [1, 2, 3, 4, 5, 6];
+const SLIDES = Array.from({ length: 5 }, (_, index) => {
+  return index + 1;
+});
 
 const DiscoverSlider = (): JSX.Element => {
   const pagination = {
@@ -20,11 +23,10 @@ const DiscoverSlider = (): JSX.Element => {
   };
 
   return (
-    <>
+    <div className='slider-wrapper'>
       <Swiper
-        className='slider-welcome__body'
+        className='slider-welcome'
         slidesPerView={1}
-        spaceBetween={10}
         loop
         navigation={navigation}
         pagination={pagination}
@@ -32,9 +34,12 @@ const DiscoverSlider = (): JSX.Element => {
       >
         {SLIDES.map((slide) => {
           return (
-            <SwiperSlide key={slide}>
+            <SwiperSlide
+              key={slide}
+              className='welcome-slide slider-welcome__welcome-slide'
+            >
               <img
-                className='slider-welcome__image'
+                className='image-slide slider-welcome__image-slide'
                 src={`welcome/${slide}.jpg`}
                 alt={`slide ${slide}`}
               />
@@ -42,8 +47,8 @@ const DiscoverSlider = (): JSX.Element => {
           );
         })}
       </Swiper>
-      <div>controls</div>
-    </>
+      <DiscoverControls />
+    </div>
   );
 };
 

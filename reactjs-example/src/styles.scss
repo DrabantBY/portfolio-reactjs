@@ -16,6 +16,15 @@
   --discover-subtitle-fs: 2.8rem;
   --discover-subtitle-lh: 3.3rem;
   --discover-subtitle-mb: 7.5rem;
+  --slider-w: 100rem;
+  --slider-controls-w: 60rem;
+  --slider-controls-h: 12rem;
+  --slider-controls-ml: auto;
+  --slider-controls-mt: -6rem;
+  --slider-controls-gap: 6rem;
+  --slider-pagination-btn-size: 1.6rem;
+  --slider-pagination-mt: 4rem;
+  --slider-pagination-gap: 2.5rem;
 
   @media (max-width: var.$desktop) {
     --header-height: 10rem;
@@ -27,6 +36,12 @@
     --discover-subtitle-fs: 2.4rem;
     --discover-subtitle-lh: 3.8rem;
     --discover-subtitle-mb: 5rem;
+    --slider-w: 70rem;
+    --slider-controls-w: 100%;
+    --slider-controls-ml: 0;
+    --slider-controls-gap: 4.5rem;
+    --slider-pagination-btn-size: 1.2rem;
+    --slider-pagination-mt: 3rem;
 
     @media (max-width: var.$tablet) {
       --header-height: 8rem;
@@ -37,12 +52,22 @@
       --title-mb: 2rem;
       --discover-subtitle-fs: 2rem;
       --discover-subtitle-lh: 2.3rem;
+      --slider-w: 100%;
+      --slider-controls-h: 10rem;
+      --slider-controls-mt: 0;
+      --slider-pagination-gap: 1.5rem;
+      --slider-pagination-mt: 2rem;
 
       @media (max-width: var.$mobile) {
         --header-height: 6rem;
         --h2-fs: 2.8rem;
         --h2-lh: 4rem;
         --discover-subtitle-fs: 1.6rem;
+        --slider-controls-h: 8rem;
+        --slider-controls-gap: 2.5rem;
+        --slider-pagination-btn-size: 0.8rem;
+        --slider-pagination-gap: 1rem;
+        --slider-pagination-mt: 1rem;
       }
     }
   }
@@ -52,26 +77,10 @@
   // --header-link-lh: 2.6rem;
   // --link-ls: 0.2rem;
 
-  // //? slogan
-
-  // //? slider
-  // --slider-welcome-width: 100rem;
-
-  // //? slider controls
-  // --controls-width: 60rem;
-  // --controls-height: 12rem;
-  // --controls-ml: auto;
-  // --controls-mt: -6rem;
-  // --controls-gap: 6rem;
-
   // //? slider counter
   // --counter-fs: 2.2rem;
   // --counter-lh: 4rem;
   // --counter-gap: 1rem;
-
-  // //? slider pagination
-  // --pagination-btn-size: 1.6rem;
-  // --pagination-gap: 2.5rem;
 
   // //? slider-thumb
   // --thumb-ring-radius: 3.9rem;
@@ -92,12 +101,7 @@
   // --btn-poster-size: 22rem;
 
   @media (max-width: var.$desktop) {
-    //   --slider-welcome-width: 70rem;
-    //   --controls-width: 100%;
-    //   --controls-ml: 0;
-    //   --controls-gap: 4.5rem;
     //   --counter-fs: 2rem;
-    //   --pagination-btn-size: 1.2rem;
 
     //   --video-screen-height: 50rem;
     //   --video-item-height: 17rem;
@@ -111,8 +115,7 @@
 
     @media (max-width: var.$tablet) {
       //     --slider-welcome-width: 100%;
-      //     --controls-height: 10rem;
-      //     --controls-mt: 0;
+
       //     --video-screen-height: 38.5rem;
       //     --video-item-height: 20rem;
       //     --video-controls-gap: 3.5rem;
@@ -121,12 +124,8 @@
       //     --btn-poster-size: 8rem;
 
       @media (max-width: var.$mobile) {
-        //       --controls-height: 8rem;
-        //       --controls-gap: 2.5rem;
         //       --counter-fs: 1.6rem;
         //       --counter-gap: 0.5rem;
-        //       --pagination-btn-size: 0.7rem;
-        //       --pagination-gap: 1rem;
 
         //       --thumb-ring-radius: 2rem;
         //       --thumb-width: 0.2rem;
@@ -222,6 +221,10 @@ button {
   cursor: pointer;
   transition: all 0.2s linear;
 
+  &:focus {
+    outline: none;
+  }
+
   &:has(svg) {
     display: flex;
     align-items: center;
@@ -235,6 +238,7 @@ input {
   &:focus {
     outline: none;
   }
+
   &::placeholder {
     color: inherit;
   }

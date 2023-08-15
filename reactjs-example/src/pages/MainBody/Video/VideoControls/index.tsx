@@ -2,9 +2,9 @@ import { ReactComponent as NextIcon } from '../../../../assets/svg/video/next.sv
 import { ReactComponent as PrevIcon } from '../../../../assets/svg/video/prev.svg';
 import './styles.scss';
 
-const SliderControls = (): JSX.Element => {
+const VideoControls = (): JSX.Element => {
   return (
-    <div className='slider-controls slider-video__slider-controls'>
+    <div className='video-controls slider-video__slider-controls'>
       <button
         type='button'
         className='slider-btn-prev slider-video__slider-btn-prev'
@@ -22,4 +22,4 @@ const SliderControls = (): JSX.Element => {
   );
 };
 
-export default SliderControls;
+export default VideoControls;
