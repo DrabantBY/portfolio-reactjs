@@ -6,6 +6,7 @@
   box-sizing: border-box;
   user-select: none;
   color: var.$white;
+  scroll-behavior: smooth;
 
   --header-height: 12rem;
   --section-py: 7.5rem;

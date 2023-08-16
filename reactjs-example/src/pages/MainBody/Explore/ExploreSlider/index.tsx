@@ -7,7 +7,7 @@ const ExploreSlider = (): JSX.Element => {
   const thumbRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (eventPosition: number): void => {
+    const handleEventPosition = (eventPosition: number): void => {
       if (thumbRef.current === null || imageRef.current === null) return;
 
       const { left, width } = imageRef.current.getBoundingClientRect();
@@ -26,21 +26,34 @@ const ExploreSlider = (): JSX.Element => {
       }
     };
 
-    if (canMove) {
-      document.body.onmousemove = (e) => {
-        handleMouseMove(e.clientX);
-      };
+    const handleOnMouseMove = (e: MouseEvent): void => {
+      handleEventPosition(e.clientX);
+    };
 
-      document.body.onmouseup = () => {
-        setCanMove(false);
-        document.body.onmousemove = null;
-        document.body.onmouseup = null;
-      };
+    const handleOnTouchMove = (e: TouchEvent): void => {
+      handleEventPosition(e.touches[0].clientX);
+    };
+
+    const removeHandlers = () => {
+      document.body.onmousemove = null;
+      document.body.onmouseup = null;
+      document.body.ontouchmove = null;
+      document.body.ontouchend = null;
+      setCanMove(false);
+    };
+
+    if (canMove) {
+      document.body.onmousemove = handleOnMouseMove;
+      document.body.ontouchmove = handleOnTouchMove;
+      document.body.onmouseup = removeHandlers;
+      document.body.ontouchend = removeHandlers;
     }
 
     return () => {
       document.body.onmousemove = null;
       document.body.onmouseup = null;
+      document.body.ontouchmove = null;
+      document.body.ontouchend = null;
     };
   }, [canMove]);
 
@@ -62,6 +75,9 @@ const ExploreSlider = (): JSX.Element => {
         className='thumb slider-explore__thumb section-explore__thumb'
         ref={thumbRef}
         onMouseDown={() => {
+          setCanMove(true);
+        }}
+        onTouchStart={() => {
           setCanMove(true);
         }}
       >

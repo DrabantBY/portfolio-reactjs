@@ -20,7 +20,6 @@ const Explore = (): JSX.Element => {
           been damaged in any way, but because it looked different.
         </p>
       </div>
-
       <ExploreSlider />
     </Section>
   );

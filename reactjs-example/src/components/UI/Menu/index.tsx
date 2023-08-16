@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import classnames from 'classnames';
-import { Link } from 'react-scroll';
 import { ReactComponent as ArrowIcon } from '../../../assets/svg/arrow.svg';
 import './styles.scss';
 
@@ -38,14 +37,9 @@ const Menu = memo((props: MenuPropsType): JSX.Element => {
       {MENU.map((link) => {
         return (
           <li key={link} className={classItem}>
-            <Link
-              activeClass='active'
-              spy
-              smooth
-              hashSpy
-              isDynamic
+            <a
+              href={`#${link}`}
               className={classLink}
-              to={link}
               onClick={() => {
                 if (props.onActive) {
                   props.onActive(false);
@@ -54,7 +48,7 @@ const Menu = memo((props: MenuPropsType): JSX.Element => {
             >
               {link}
               {props.isBurger && <ArrowIcon />}
-            </Link>
+            </a>
           </li>
         );
       })}
