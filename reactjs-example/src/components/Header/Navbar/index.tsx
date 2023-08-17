@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Overlay from '../../UI/Overlay';
 import MenuButton from '../MenuButton';
 import Logo from '../../UI/Logo';
@@ -6,14 +6,6 @@ import Menu from '../../UI/Menu';
 
 const Navbar = (): JSX.Element => {
   const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    if (isActive) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'initial';
-    }
-  }, [isActive]);
 
   return (
     <nav className='navigation header__navigation'>
