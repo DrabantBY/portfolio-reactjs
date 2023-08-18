@@ -72,78 +72,12 @@
       }
     }
   }
-
-  // //? header link
-  // --header-link-fs: 2.2rem;
-  // --header-link-lh: 2.6rem;
-  // --link-ls: 0.2rem;
-
-  // //? slider counter
-  // --counter-fs: 2.2rem;
-  // --counter-lh: 4rem;
-  // --counter-gap: 1rem;
-
-  // //? slider-thumb
-  // --thumb-ring-radius: 3.9rem;
-  // --thumb-width: 0.5rem;
-
-  // //? video
-  // --video-item-height: 25rem;
-  // --video-screen-height: 73.5rem;
-  // --video-controls-gap: 5rem;
-  // --video-controls-height: 8.5rem;
-  // --video-controls-svg-height: auto;
-  // --video-controls-px: 4rem;
-  // --thumb-size: 1.5rem;
-  // --thumb-mt: -0.3rem;
-  // --track-height: 0.8rem;
-
-  // //? btn-poster
-  // --btn-poster-size: 22rem;
-
-  @media (max-width: var.$desktop) {
-    //   --counter-fs: 2rem;
-
-    //   --video-screen-height: 50rem;
-    //   --video-item-height: 17rem;
-    //   --video-controls-gap: 3rem;
-    //   --thumb-size: 1.3rem;
-    //   --track-height: 0.5rem;
-    //   --thumb-mt: -0.4rem;
-    //   --video-controls-height: 6rem;
-    //   --video-controls-svg-height: 2.6rem;
-    //   --btn-poster-size: 15.2rem;
-
-    @media (max-width: var.$tablet) {
-      //     --slider-welcome-width: 100%;
-
-      //     --video-screen-height: 38.5rem;
-      //     --video-item-height: 20rem;
-      //     --video-controls-gap: 3.5rem;
-      //     --video-controls-height: 5.5rem;
-      //     --video-controls-px: 3rem;
-      //     --btn-poster-size: 8rem;
-
-      @media (max-width: var.$mobile) {
-        //       --counter-fs: 1.6rem;
-        //       --counter-gap: 0.5rem;
-
-        //       --thumb-ring-radius: 2rem;
-        //       --thumb-width: 0.2rem;
-        //       --video-screen-height: 22.5rem;
-        //       --video-item-height: 10rem;
-        //       --video-controls-gap: 3rem;
-        //       --thumb-size: 1rem;
-        //       --track-height: 0.4rem;
-        //       --thumb-mt: -0.3rem;
-        //       --video-controls-height: 5rem;
-        //       --video-controls-svg-height: 2rem;
-        //       --video-controls-px: 2rem;
-        //       --btn-poster-size: 5rem;
-      }
-    }
-  }
 }
+
+// //? slider counter
+// --counter-fs: 2.2rem;
+// --counter-lh: 4rem;
+// --counter-gap: 1rem;
 
 * {
   box-sizing: inherit;

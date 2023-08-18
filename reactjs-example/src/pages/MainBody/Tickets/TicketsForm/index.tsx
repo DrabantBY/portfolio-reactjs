@@ -13,17 +13,17 @@ import { ReactComponent as TelIcon } from '../../../../assets/svg/ticket/tel.svg
 import { ReactComponent as ListIcon } from '../../../../assets/svg/ticket/list.svg';
 import { ReactComponent as ArrowIcon } from '../../../../assets/svg/ticket/arrow.svg';
 import getLabelValue from '../../../../utils/getLabelValue';
+import PRICES from '../../../../data/prices';
 import './styles.scss';
-
-const TICKETS = [
-  { value: '20', label: 'permanent exhibition' },
-  { value: '30', label: 'temporary exhibition' },
-  { value: '40', label: 'combined admission' },
-];
 
 const TicketsForm = (): JSX.Element => {
   const { state, setNumberValue, setInputValue, setInitState } = useFormState();
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const closeModal = () => {
+    setIsSubmit(false);
+    setInitState();
+  };
 
   const basicPriceValue = state.price ? `${state.price} €` : 'set ticket type';
   const seniorPriceValue = state.price
@@ -132,7 +132,7 @@ const TicketsForm = (): JSX.Element => {
         <FieldSelect
           className='form-field form-tickets__form-field'
           name='price'
-          options={TICKETS}
+          options={PRICES}
           placeholder='ticket type'
           value={state.price}
           handleChange={setInputValue}
@@ -190,6 +190,7 @@ const TicketsForm = (): JSX.Element => {
           total={state.total}
           date={state.date}
           time={state.time}
+          onClose={closeModal}
         />
       )}
     </>

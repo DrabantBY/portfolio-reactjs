@@ -5,4 +5,5 @@ export type ModalPropsType = {
   total: number;
   date: string;
   time: string;
+  onClose: () => void;
 };

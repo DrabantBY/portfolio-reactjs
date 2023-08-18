@@ -9,7 +9,6 @@ type OverlayPropsType = {
 const Overlay = (props: OverlayPropsType): JSX.Element => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-
     return () => {
       document.body.style.overflow = 'initial';
     };

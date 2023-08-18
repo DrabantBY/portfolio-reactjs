@@ -1,15 +1,7 @@
 import Section from '../Section';
 import Card from './Card';
+import TITLES from '../../../data/titles';
 import './styles.scss';
-
-const TITLES = [
-  'royal palace',
-  'denon wing',
-  'colonnade perrault',
-  'greek hall',
-  'mona lisa',
-  'night palace',
-];
 
 const Visiting = (): JSX.Element => {
   return (

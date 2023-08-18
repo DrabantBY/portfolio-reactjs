@@ -14,14 +14,13 @@
 
   label {
     margin-inline-start: 1.5rem;
+    margin-inline-end: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     @media (max-width: var.$mobile) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
-      margin-inline-start: 0;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
   }
 
