@@ -7,10 +7,10 @@ import { ReactComponent as TelIcon } from '@svg/ticket/tel.svg';
 import { ReactComponent as ListIcon } from '@svg/ticket/list.svg';
 import { ReactComponent as ArrowIcon } from '@svg/ticket/arrow.svg';
 import useFormState from '@/hooks/useFormState';
-import getLabelValue from '@/utils/getLabelValue';
+import getDateList from '@/utils/getDateList';
+import getTimeList from '@/utils/getTimeList';
 import PRICES from '@/data/prices';
 import FieldInput from '../FieldInput';
-import FieldDate from '../FieldDate';
 import FieldSelect from '../FieldSelect';
 import FieldNumber from '../FieldNumber';
 import Modal from '../Modal';
@@ -26,6 +26,7 @@ const TicketsForm = (): JSX.Element => {
   };
 
   const basicPriceValue = state.price ? `${state.price} €` : 'set ticket type';
+
   const seniorPriceValue = state.price
     ? `${Number(state.price) / 2} €`
     : 'set ticket type';
@@ -59,7 +60,11 @@ const TicketsForm = (): JSX.Element => {
   }, []);
 
   const TIME = useMemo(() => {
-    return getLabelValue(9, 18);
+    return getTimeList(9, 18);
+  }, []);
+
+  const DAYS = useMemo(() => {
+    return getDateList(7);
   }, []);
 
   return (
@@ -71,10 +76,10 @@ const TicketsForm = (): JSX.Element => {
           setIsSubmit(true);
         }}
       >
-        <FieldDate
+        <FieldSelect
           className='form-field form-tickets__form-field'
-          type='date'
           name='date'
+          options={DAYS}
           placeholder='date'
           value={state.date}
           handleChange={setInputValue}

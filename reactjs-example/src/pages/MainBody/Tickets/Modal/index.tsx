@@ -55,7 +55,7 @@ const Modal = (props: ModalPropsType): JSX.Element => {
             Total: <span className='modal-field__sum'>{props.total} €</span>
           </div>
           <div className='modal-field modal-field__message'>
-            the order has been successfully sent
+            successfully booked
           </div>
         </div>
 
