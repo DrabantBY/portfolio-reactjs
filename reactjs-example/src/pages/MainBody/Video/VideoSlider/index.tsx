@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import VideoControls from '../VideoControls';
-import VIDEO from '../../../../data/video';
+import VIDEO from '@/data/video';
 import 'swiper/scss';
 import './styles.scss';
 

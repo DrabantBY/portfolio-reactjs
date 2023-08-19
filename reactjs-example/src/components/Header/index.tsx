@@ -1,5 +1,4 @@
 import Navbar from './Navbar';
-
 import './styles.scss';
 
 const Header = (): JSX.Element => {

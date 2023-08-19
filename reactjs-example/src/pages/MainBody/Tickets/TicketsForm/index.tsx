@@ -1,19 +1,19 @@
 import { useMemo, useState } from 'react';
-import useFormState from '../../../../hooks/useFormState';
+import { ReactComponent as DateIcon } from '@svg/ticket/date.svg';
+import { ReactComponent as TimeIcon } from '@svg/ticket/time.svg';
+import { ReactComponent as NameIcon } from '@svg/ticket/name.svg';
+import { ReactComponent as EmailIcon } from '@svg/ticket/email.svg';
+import { ReactComponent as TelIcon } from '@svg/ticket/tel.svg';
+import { ReactComponent as ListIcon } from '@svg/ticket/list.svg';
+import { ReactComponent as ArrowIcon } from '@svg/ticket/arrow.svg';
+import useFormState from '@/hooks/useFormState';
+import getLabelValue from '@/utils/getLabelValue';
+import PRICES from '@/data/prices';
 import FieldInput from '../FieldInput';
 import FieldDate from '../FieldDate';
 import FieldSelect from '../FieldSelect';
 import FieldNumber from '../FieldNumber';
 import Modal from '../Modal';
-import { ReactComponent as DateIcon } from '../../../../assets/svg/ticket/date.svg';
-import { ReactComponent as TimeIcon } from '../../../../assets/svg/ticket/time.svg';
-import { ReactComponent as NameIcon } from '../../../../assets/svg/ticket/name.svg';
-import { ReactComponent as EmailIcon } from '../../../../assets/svg/ticket/email.svg';
-import { ReactComponent as TelIcon } from '../../../../assets/svg/ticket/tel.svg';
-import { ReactComponent as ListIcon } from '../../../../assets/svg/ticket/list.svg';
-import { ReactComponent as ArrowIcon } from '../../../../assets/svg/ticket/arrow.svg';
-import getLabelValue from '../../../../utils/getLabelValue';
-import PRICES from '../../../../data/prices';
 import './styles.scss';
 
 const TicketsForm = (): JSX.Element => {

@@ -1,6 +1,6 @@
 import Section from '../Section';
 import Card from './Card';
-import TITLES from '../../../data/titles';
+import TITLES from '@/data/titles';
 import './styles.scss';
 
 const Visiting = (): JSX.Element => {

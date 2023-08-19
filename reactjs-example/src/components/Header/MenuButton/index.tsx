@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import classnames from 'classnames';
-
 import './styles.scss';
 
 type MenuButtonPropsType = {

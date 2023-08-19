@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import useIntersection from '../../../../hooks/useIntersection';
-
+import useIntersection from '@/hooks/useIntersection';
 import './styles.scss';
 
 type ImagePropsType = {

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Overlay from '../../UI/Overlay';
+import Logo from '@/components/UI/Logo';
+import Menu from '@/components/UI/Menu';
+import Overlay from '@/components/UI/Overlay';
 import MenuButton from '../MenuButton';
-import Logo from '../../UI/Logo';
-import Menu from '../../UI/Menu';
 
 const Navbar = (): JSX.Element => {
   const [isActive, setIsActive] = useState(false);

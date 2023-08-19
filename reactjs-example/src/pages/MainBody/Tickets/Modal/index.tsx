@@ -1,9 +1,9 @@
-import Overlay from '../../../../components/UI/Overlay';
-import { ReactComponent as DateIcon } from '../../../../assets/svg/ticket/date.svg';
-import { ReactComponent as TimeIcon } from '../../../../assets/svg/ticket/time.svg';
-import { ReactComponent as CheckIcon } from '../../../../assets/svg/ticket/check.svg';
-import getPriceLabel from '../../../../utils/getPriceLabel';
-import getStringDate from '../../../../utils/getStringDate';
+import { ReactComponent as DateIcon } from '@svg/ticket/date.svg';
+import { ReactComponent as TimeIcon } from '@svg/ticket/time.svg';
+import { ReactComponent as CheckIcon } from '@svg/ticket/check.svg';
+import Overlay from '@/components/UI/Overlay';
+import getPriceLabel from '@/utils/getPriceLabel';
+import getStringDate from '@/utils/getStringDate';
 import { ModalPropsType } from './types';
 import './styles.scss';
 

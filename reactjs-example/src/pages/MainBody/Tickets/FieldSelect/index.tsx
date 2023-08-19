@@ -2,7 +2,7 @@ import { memo, useState, useCallback } from 'react';
 import classnames from 'classnames';
 import { FieldSelectPropsType } from './types';
 import FieldRadio from '../FieldRadio';
-import getOptionLabel from '../../../../utils/getOptionLabel';
+import getOptionLabel from '@/utils/getOptionLabel';
 import './styles.scss';
 
 const FieldSelect = memo((props: FieldSelectPropsType): JSX.Element => {

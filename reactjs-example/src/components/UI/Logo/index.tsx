@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as LogoIcon } from '../../../assets/svg/logo.svg';
+import { ReactComponent as LogoIcon } from '@svg/logo.svg';
 import './styles.scss';
 
 type LogoPropsType = {

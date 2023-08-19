@@ -1,8 +1,8 @@
-import { ReactComponent as YoutubeIcon } from '../../../assets/svg/footer/youtube.svg';
-import { ReactComponent as InstagramIcon } from '../../../assets/svg/footer/instagram.svg';
-import { ReactComponent as FacebookIcon } from '../../../assets/svg/footer/facebook.svg';
-import { ReactComponent as TwitterIcon } from '../../../assets/svg/footer/twitter.svg';
-import { ReactComponent as PinterestIcon } from '../../../assets/svg/footer/pinterest.svg';
+import { ReactComponent as YoutubeIcon } from '@svg/footer/youtube.svg';
+import { ReactComponent as InstagramIcon } from '@svg/footer/instagram.svg';
+import { ReactComponent as FacebookIcon } from '@svg/footer/facebook.svg';
+import { ReactComponent as TwitterIcon } from '@svg/footer/twitter.svg';
+import { ReactComponent as PinterestIcon } from '@svg/footer/pinterest.svg';
 import './styles.scss';
 
 const SocialNet = (): JSX.Element => {

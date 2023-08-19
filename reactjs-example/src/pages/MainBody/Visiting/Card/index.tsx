@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import transformTitleItems from '../../../../utils/transformTitleItems';
+import transformTitleItems from '@/utils/transformTitleItems';
 import './styles.scss';
 
 type CardPropsType = {

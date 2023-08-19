@@ -1,6 +1,5 @@
-import { ReactComponent as NextIcon } from '../../../../assets/svg/welcome/next.svg';
-import { ReactComponent as PrevIcon } from '../../../../assets/svg/welcome/prev.svg';
-
+import { ReactComponent as NextIcon } from '@svg/welcome/next.svg';
+import { ReactComponent as PrevIcon } from '@svg/welcome/prev.svg';
 import './styles.scss';
 
 const DiscoverControls = (): JSX.Element => {

@@ -1,7 +1,7 @@
 import Section from '../Section';
 import Image from './Image';
-import shuffleGalleryItems from '../../../utils/shuffleGalleryItems';
-import GALLERY from '../../../data/gallery';
+import shuffleGalleryItems from '@/utils/shuffleGalleryItems';
+import GALLERY from '@/data/gallery';
 import './styles.scss';
 
 const Gallery = (): JSX.Element => {

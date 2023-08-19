@@ -43,6 +43,7 @@ module.exports = {
       },
     ],
     'react/destructuring-assignment': ['warn', 'never'],
+    'import/extensions': ['warn', 'never', { svg: 'always' }],
 
     // 'react/function-component-definition': 'off',
     // 'arrow-body-style': 'off',

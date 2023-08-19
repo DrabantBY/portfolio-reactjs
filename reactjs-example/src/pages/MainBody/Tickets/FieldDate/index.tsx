@@ -1,7 +1,7 @@
 import { useEffect, useRef, useMemo, memo } from 'react';
 import classnames from 'classnames';
 import { FieldDatePropsType } from './types';
-import getCurrentDate from '../../../../utils/getCurrentDate';
+import getCurrentDate from '@/utils/getCurrentDate';
 import './styles.scss';
 
 const FieldDate = memo((props: FieldDatePropsType): JSX.Element => {

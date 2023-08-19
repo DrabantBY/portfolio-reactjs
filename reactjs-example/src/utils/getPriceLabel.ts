@@ -1,4 +1,4 @@
-import PRICES from '../data/prices';
+import PRICES from '@/data/prices';
 
 const getPriceLabel = (value: string): string | null => {
   return (
