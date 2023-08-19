@@ -26,6 +26,9 @@
   --slider-pagination-btn-size: 1.6rem;
   --slider-pagination-mt: 4rem;
   --slider-pagination-gap: 2.5rem;
+  --slider-fraction-fs: 2.2rem;
+  --slider-fraction-lh: 4rem;
+  --slider-fraction-gap: 1rem;
 
   @media (max-width: var.$desktop) {
     --header-height: 10rem;
@@ -43,6 +46,7 @@
     --slider-controls-gap: 4.5rem;
     --slider-pagination-btn-size: 1.2rem;
     --slider-pagination-mt: 3rem;
+    --slider-fraction-fs: 2rem;
 
     @media (max-width: var.$tablet) {
       --header-height: 8rem;
@@ -69,6 +73,8 @@
         --slider-pagination-btn-size: 0.8rem;
         --slider-pagination-gap: 1rem;
         --slider-pagination-mt: 1rem;
+        --slider-fraction-fs: 1.6rem;
+        --slider-fraction-gap: 0.5rem;
       }
     }
   }

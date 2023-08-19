@@ -1,28 +1,29 @@
-import { memo } from 'react';
+import { useContext } from 'react';
 import classnames from 'classnames';
+import {
+  ContextMenuState,
+  ContextMenuAction,
+} from '@/context/ContextMenuProvider';
 import './styles.scss';
 
-type MenuButtonPropsType = {
-  isActive: boolean;
-  onActive: (active: boolean) => void;
-};
-
-const MenuButton = memo((props: MenuButtonPropsType): JSX.Element => {
-  const classMenuBtn = classnames('menu-btn', { active: props.isActive });
+const MenuButton = (): JSX.Element => {
+  const state = useContext(ContextMenuState);
+  const setState = useContext(ContextMenuAction);
+  const classMenuBtn = classnames('menu-btn', { active: state });
 
   return (
     <button
       type='button'
       className={classMenuBtn}
       onClick={() => {
-        props.onActive(!props.isActive);
+        setState(!state);
       }}
     >
       <span />
-      {!props.isActive && <span />}
+      {!state && <span />}
       <span />
     </button>
   );
-});
+};
 
 export default MenuButton;

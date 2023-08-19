@@ -1,6 +1,7 @@
-import { memo } from 'react';
+import { useContext, memo } from 'react';
 import classnames from 'classnames';
 import { ReactComponent as ArrowIcon } from '@svg/arrow.svg';
+import { ContextMenuAction } from '@/context/ContextMenuProvider';
 import './styles.scss';
 
 const MENU = ['visiting', 'explore', 'video', 'gallery', 'tickets', 'contacts'];
@@ -8,11 +9,11 @@ const MENU = ['visiting', 'explore', 'video', 'gallery', 'tickets', 'contacts'];
 type MenuPropsType = {
   position: 'header' | 'footer';
   isBurger: boolean;
-  onActive: ((active: boolean) => void) | null;
 };
 
 const Menu = memo((props: MenuPropsType): JSX.Element => {
   const burger = props.isBurger ? 'menu-burger' : 'menu';
+  const setState = useContext(ContextMenuAction);
 
   const classMenu = classnames(
     burger,
@@ -41,9 +42,7 @@ const Menu = memo((props: MenuPropsType): JSX.Element => {
               href={`#${link}`}
               className={classLink}
               onClick={() => {
-                if (props.onActive) {
-                  props.onActive(false);
-                }
+                setState(false);
               }}
             >
               {link}

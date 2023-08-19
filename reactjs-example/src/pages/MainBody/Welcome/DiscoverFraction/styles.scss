@@ -1,0 +1,8 @@
+.slider-fraction {
+  display: flex;
+  align-items: center;
+  column-gap: var(--slider-fraction-gap);
+  font-size: var(--slider-fraction-fs);
+  line-height: var(--slider-fraction-lh);
+  text-transform: uppercase;
+}

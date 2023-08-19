@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import DiscoverControls from '../DiscoverControls';
+import { ContextFractionAction } from '@/context/ContextSliderProvider';
 import 'swiper/scss';
 import './styles.scss';
 
@@ -9,6 +11,8 @@ const SLIDES = Array.from({ length: 5 }, (_, index) => {
 });
 
 const DiscoverSlider = (): JSX.Element => {
+  const changeFraction = useContext(ContextFractionAction);
+
   const pagination = {
     el: '.slider-welcome__slider-pagination',
     clickable: true,
@@ -31,6 +35,24 @@ const DiscoverSlider = (): JSX.Element => {
         navigation={navigation}
         pagination={pagination}
         modules={[Navigation, Pagination]}
+        onSlideChange={(swiper) => {
+          changeFraction((state) => {
+            return {
+              ...state,
+              total: swiper.slides.length,
+              current: swiper.realIndex + 1,
+            };
+          });
+        }}
+        onAfterInit={(swiper) => {
+          changeFraction((state) => {
+            return {
+              ...state,
+              total: swiper.slides.length,
+              current: swiper.realIndex + 1,
+            };
+          });
+        }}
       >
         {SLIDES.map((slide) => {
           return (

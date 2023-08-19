@@ -34,6 +34,8 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
+        tabWidth: 2,
+        printWidth: 80,
         singleQuote: true,
         jsxSingleQuote: true,
         bracketSpacing: true,
@@ -44,15 +46,5 @@ module.exports = {
     ],
     'react/destructuring-assignment': ['warn', 'never'],
     'import/extensions': ['warn', 'never', { svg: 'always' }],
-
-    // 'react/function-component-definition': 'off',
-    // 'arrow-body-style': 'off',
-    // 'import/no-named-as-default': 'off',
-    // 'import/no-extraneous-dependencies': 'off',
-    // 'operator-linebreak': 'off',
-    // 'react/jsx-one-expression-per-line': 'off',
-    // 'jsx-a11y/no-static-element-interactions': 'off',
-    // 'jsx-a11y/label-has-associated-control': 'off',
-    // '@typescript-eslint/comma-dangle': 'off',
   },
 };
