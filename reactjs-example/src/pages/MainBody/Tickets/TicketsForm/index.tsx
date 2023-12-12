@@ -1,20 +1,21 @@
-import { useMemo, useState } from 'react';
-import { ReactComponent as DateIcon } from '@svg/ticket/date.svg';
-import { ReactComponent as TimeIcon } from '@svg/ticket/time.svg';
-import { ReactComponent as NameIcon } from '@svg/ticket/name.svg';
-import { ReactComponent as EmailIcon } from '@svg/ticket/email.svg';
-import { ReactComponent as TelIcon } from '@svg/ticket/tel.svg';
-import { ReactComponent as ListIcon } from '@svg/ticket/list.svg';
-import { ReactComponent as ArrowIcon } from '@svg/ticket/arrow.svg';
-import useFormState from '@/hooks/useFormState';
-import getDateList from '@/utils/getDateList';
-import getTimeList from '@/utils/getTimeList';
-import PRICES from '@/data/prices';
-import FieldInput from '../FieldInput';
-import FieldSelect from '../FieldSelect';
-import FieldNumber from '../FieldNumber';
-import Modal from '../Modal';
-import './styles.scss';
+import { useMemo, useState } from "react";
+import { ReactComponent as DateIcon } from "@svg/ticket/date.svg";
+import { ReactComponent as TimeIcon } from "@svg/ticket/time.svg";
+import { ReactComponent as NameIcon } from "@svg/ticket/name.svg";
+import { ReactComponent as EmailIcon } from "@svg/ticket/email.svg";
+import { ReactComponent as TelIcon } from "@svg/ticket/tel.svg";
+import { ReactComponent as ListIcon } from "@svg/ticket/list.svg";
+import { ReactComponent as ArrowIcon } from "@svg/ticket/arrow.svg";
+import useFormState from "@/hooks/useFormState";
+import getDateList from "@/utils/getDateList";
+import getTimeList from "@/utils/getTimeList";
+import PRICES from "@/data/prices";
+import FieldInput from "../FieldInput";
+import FieldSelect from "../FieldSelect";
+import FieldNumber from "../FieldNumber";
+import Modal from "../Modal";
+import { ErrorMessages } from "./types";
+import "./styles.scss";
 
 const TicketsForm = (): JSX.Element => {
   const { state, setNumberValue, setInputValue, setInitState } = useFormState();
@@ -25,11 +26,9 @@ const TicketsForm = (): JSX.Element => {
     setInitState();
   };
 
-  const basicPriceValue = state.price ? `${state.price} €` : 'set ticket type';
+  const basicPriceValue = state.price ? `${state.price} €` : "set ticket type";
 
-  const seniorPriceValue = state.price
-    ? `${Number(state.price) / 2} €`
-    : 'set ticket type';
+  const seniorPriceValue = state.price ? `${Number(state.price) / 2} €` : "set ticket type";
 
   const memoNameIcon = useMemo(() => {
     return <NameIcon />;
@@ -70,17 +69,17 @@ const TicketsForm = (): JSX.Element => {
   return (
     <>
       <form
-        className='form-tickets'
+        className="form-tickets"
         onSubmit={(e) => {
           e.preventDefault();
           setIsSubmit(true);
         }}
       >
         <FieldSelect
-          className='form-field form-tickets__form-field'
-          name='date'
+          className="form-field form-tickets__form-field"
+          name="date"
           options={DAYS}
-          placeholder='date'
+          placeholder="date"
           value={state.date}
           handleChange={setInputValue}
           iconLeft={memoDateIcon}
@@ -88,10 +87,10 @@ const TicketsForm = (): JSX.Element => {
         />
 
         <FieldSelect
-          className='form-field form-tickets__form-field'
-          name='time'
+          className="form-field form-tickets__form-field"
+          name="time"
           options={TIME}
-          placeholder='time'
+          placeholder="time"
           value={state.time}
           handleChange={setInputValue}
           iconLeft={memoTimeIcon}
@@ -99,46 +98,46 @@ const TicketsForm = (): JSX.Element => {
         />
 
         <FieldInput
-          className='form-field form-tickets__form-field'
-          type='text'
-          name='name'
-          placeholder='full name'
+          className="form-field form-tickets__form-field"
+          type="text"
+          name="name"
+          placeholder="full name"
           value={state.name}
           handleChange={setInputValue}
           isError={state.isNameError}
           icon={memoNameIcon}
-          message={import.meta.env.VITE_NAME_ERROR}
+          message={ErrorMessages.NAME_ERROR}
         />
 
         <FieldInput
-          className='form-field form-tickets__form-field'
-          type='email'
-          name='email'
-          placeholder='email'
+          className="form-field form-tickets__form-field"
+          type="email"
+          name="email"
+          placeholder="email"
           value={state.email}
           handleChange={setInputValue}
           isError={state.isEmailError}
           icon={memoEmailIcon}
-          message={import.meta.env.VITE_EMAIL_ERROR}
+          message={ErrorMessages.EMAIL_ERROR}
         />
 
         <FieldInput
-          className='form-field form-tickets__form-field'
-          type='tel'
-          name='phone'
-          placeholder='phone'
+          className="form-field form-tickets__form-field"
+          type="tel"
+          name="phone"
+          placeholder="phone"
           value={state.phone}
           handleChange={setInputValue}
           isError={state.isPhoneError}
           icon={memoTelIcon}
-          message={import.meta.env.VITE_PHONE_ERROR}
+          message={ErrorMessages.PHONE_ERROR}
         />
 
         <FieldSelect
-          className='form-field form-tickets__form-field'
-          name='price'
+          className="form-field form-tickets__form-field"
+          name="price"
           options={PRICES}
-          placeholder='ticket type'
+          placeholder="ticket type"
           value={state.price}
           handleChange={setInputValue}
           iconLeft={memoListIcon}
@@ -146,9 +145,9 @@ const TicketsForm = (): JSX.Element => {
         />
 
         <FieldNumber
-          className='form-field form-tickets__form-field'
+          className="form-field form-tickets__form-field"
           label={`age 18+ (${basicPriceValue})`}
-          name='basic'
+          name="basic"
           value={state.basic}
           minValue={0}
           maxValue={10}
@@ -156,33 +155,29 @@ const TicketsForm = (): JSX.Element => {
         />
 
         <FieldNumber
-          className='form-field form-tickets__form-field'
+          className="form-field form-tickets__form-field"
           label={`age 65+ (${seniorPriceValue})`}
-          name='senior'
+          name="senior"
           value={state.senior}
           minValue={0}
           maxValue={10}
           handleClick={setNumberValue}
         />
 
-        <div className='total-price form-tickets__total-price'>
+        <div className="total-price form-tickets__total-price">
           Total:&nbsp;<span>{state.total}</span>&nbsp;€
         </div>
 
-        <div className='form-controls form-tickets__form-controls'>
+        <div className="form-controls form-tickets__form-controls">
           <button
             disabled={state.isActiveResetBtn}
-            className='btn-control form-tickets__btn-control'
-            type='button'
+            className="btn-control form-tickets__btn-control"
+            type="button"
             onClick={setInitState}
           >
             Reset
           </button>
-          <button
-            className='btn-control form-tickets__btn-control'
-            type='submit'
-            disabled={!state.isActiveSubmitBtn}
-          >
+          <button className="btn-control form-tickets__btn-control" type="submit" disabled={!state.isActiveSubmitBtn}>
             Book
           </button>
         </div>
