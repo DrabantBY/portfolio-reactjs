@@ -1,0 +1,26 @@
+@use '@/var';
+
+.section-tickets {
+  background-color: var.$white;
+
+  &__section-title {
+    color: var.$gold;
+  }
+
+  &__section-body {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+
+    @media (max-width: var.$tablet) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__section-figure {
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}

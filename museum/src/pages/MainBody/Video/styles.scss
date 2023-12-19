@@ -1,0 +1,9 @@
+@use '@/var';
+
+.section-video {
+  background-color: var.$white;
+
+  &__section-title {
+    color: var.$gold;
+  }
+}
